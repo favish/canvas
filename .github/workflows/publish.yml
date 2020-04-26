@@ -29,10 +29,18 @@ jobs:
           yarn 
           yarn version --patch
           yarn build
-          yarn publish --@rsbear:registry=https://registry.npmjs.org/ --access public
-          yarn publish --@rsbear:registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+          scope: '@rsbear'
+      - name: Publish to GitHub Package Registry
+        run: yarn publish --@rsbear:registry=https://registry.npmjs.org/ --access-public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.gh_token}}
 
       #publish to gpr
       - uses: actions/setup-node@master
@@ -41,7 +49,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@rsbear'
       - name: Publish to GitHub Package Registry
-        run: yarn publish
+        run: yarn publish --@rsbear:registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.gh_token}}
   
