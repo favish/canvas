@@ -18,9 +18,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
+          always-auth: true
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-      - name: Build canvas
+      - name: Build and push
         run: |
           git config --global user.email "hellorosss@gmail.com"
           git config --global user.name "rsbear"
@@ -28,6 +29,6 @@ jobs:
           yarn 
           yarn version --patch
           yarn build
-          yarn publish --access public
+          yarn publish 
         env:
           NODE_AUTH_TOKEN: ${{secrets.gh_token}}
