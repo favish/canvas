@@ -38,6 +38,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
           scope: '@rsbear'
       - name: Publish to NPM
+        run: git config --global user.email "hellorosss@gmail.com"
+        run: git config --global user.name "rsbear"
         run: cd canvas && yarn publish --@rsbear:registry=https://registry.npmjs.org/ --access-public
         env:
           NODE_AUTH_TOKEN: ${{secrets.gh_token}}
@@ -49,6 +51,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@rsbear'
       - name: Publish to GitHub Package Registry
+        run: git config --global user.email "hellorosss@gmail.com"
+        run: git config --global user.name "rsbear"
         run: cd canvas && yarn publish --@rsbear:registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.gh_token}}
