@@ -20,7 +20,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://registry.npmjs.org/
       - name: Build and push
         run: |
           git config --global user.email "hellorosss@gmail.com"
@@ -29,6 +28,6 @@ jobs:
           yarn 
           yarn version --patch
           yarn build
-          yarn publish --@rsbear:registry=https://registry.npmjs.org/
+          yarn publish 
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.gh_token}}
