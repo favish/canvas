@@ -1,0 +1,53 @@
+{
+  "name": "@rsbear/canvas",
+  "version": "0.0.1",
+  "description": "style with style",
+  "main": "dist/canvas.js",
+  "browser": "dist/canvas.umd.js",
+  "umd:main": "dist/canvas.umd.js",
+  "jsnext:main": "dist/canvas.modern.js",
+  "module": "dist/canvas.module.js",
+  "syntax": {
+    "esmodules": "dist/canvas.modern.js"
+  },
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "feather-sprite.svg"
+  ],
+  "author": "Ross Stevens",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && yarn build:minified && yarn cleanup",
+    "build:minified": "microbundle --jsx React.createElement --external react --name canvas --output dist/",
+    "build:uncompressed": "microbundle --jsx React.createElement --external react --no-compress --name canvas --output dist/",
+    "dev": "microbundle watch --jsx React.createElement --external react --no-compress --output dist/",
+    "cleanup": "rimraf .rpt2_cache && rimraf .rts2_cache_cjs && rimraf .rts2_cache_umd && rimraf .rts2_cache_es"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.3",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/styled-components": "^5.1.0",
+    "@types/styled-system": "^5.1.9",
+    "add": "^2.0.6",
+    "microbundle": "^0.11.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rimraf": "^3.0.2",
+    "styled-components": "^5.1.0",
+    "svg-url-loader": "^5.0.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "yarn": "^1.22.4"
+  },
+  "dependencies": {
+    "styled-system": "^5.1.5"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0"
+  }
+}
