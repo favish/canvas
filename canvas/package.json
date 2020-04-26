@@ -18,6 +18,11 @@
   ],
   "author": "Ross Stevens",
   "license": "MIT",
+  "url": "https://github.com/rsbear/canvas/canvas",
+  "repository": "https://www.github.com/rsbear/canvas/canvas",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "rimraf dist && yarn build:minified && yarn cleanup",
     "build:minified": "microbundle --jsx React.createElement --external react --name canvas --output dist/",
