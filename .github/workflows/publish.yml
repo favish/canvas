@@ -28,6 +28,6 @@ jobs:
           yarn 
           yarn version --patch
           yarn build
-          yarn publish 
+          yarn publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.gh_token}}
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
