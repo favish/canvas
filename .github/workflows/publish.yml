@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --global user.email "hellorosss@gmail.com"
           git config --global user.name "rsbear"
-          cd stevezissou
+          cd canvas
           yarn 
           yarn version --patch
           yarn build
