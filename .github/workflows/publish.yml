@@ -29,6 +29,9 @@ jobs:
           yarn 
           yarn version --patch
           yarn build
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+        
           
       - uses: actions/setup-node@master
         with:
