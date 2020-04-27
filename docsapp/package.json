@@ -14,7 +14,7 @@
     "deploy": "yarn build && yarn export"
   },
   "dependencies": {
-    "@rsbear/canvas": "^0.0.20",
+    "@rsbear/canvas": "^0.0.21",
     "fs": "^0.0.1-security",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",

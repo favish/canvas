@@ -2534,16 +2534,15 @@ export const Icon: React.FC<IconProps> = (props) => {
     return null;
   }
   return (
-    <IconContainer>
+    <IconContainer size={size} {...rest}>
       <svg
-        width={`${size}px` || "24px"}
-        height={`${size}px` || "24px"}
+        height="100%"
+        viewBox="0 0 24 24"
         fill={fill || "none"}
         stroke={color || "black"}
         strokeWidth={strokeWidth || "2px"}
         strokeLinecap="round"
         strokeLinejoin="round"
-        {...rest}
       >
         {whichRender()}
       </svg>
