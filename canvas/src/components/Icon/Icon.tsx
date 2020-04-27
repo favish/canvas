@@ -3,25 +3,30 @@ import { IconEnum } from "./iconEnumType";
 import styled from "styled-components";
 import { space, SpaceProps } from "styled-system";
 
-interface SvgProps extends SpaceProps {}
+interface SvgProps extends SpaceProps {
+  size?: number;
+}
 
 export interface IconProps extends SvgProps {
   icon: IconEnum;
   color?: string;
   fill?: string;
-  scale?: number;
   size?: number;
   stroke?: string;
   strokeWidth?: number | string;
 }
 
-const Svg = styled.svg<any>`
+const IconContainer = styled.div<SvgProps>`
+  height: ${(p) => (p.size ? `${p.size}px` : "24px")};
+  max-width: ${(p) => (p.size ? `${p.size}px` : "24px")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   ${space}
-  transform: ${(p) => (p.scale ? `scale(${p.scale})` : `scale(1)`)};
 `;
 
 export const Icon: React.FC<IconProps> = (props) => {
-  const { icon, color, fill, size, scale, strokeWidth, ...rest } = props;
+  const { icon, color, fill, size, strokeWidth, ...rest } = props;
 
   function whichRender() {
     if (icon == "activity") {
@@ -2529,18 +2534,19 @@ export const Icon: React.FC<IconProps> = (props) => {
     return null;
   }
   return (
-    <Svg
-      width={`${size}px` || "24px"}
-      height={`${size}px` || "24px"}
-      fill={fill || "none"}
-      scale={scale}
-      stroke={color || "black"}
-      strokeWidth={strokeWidth || "2px"}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...rest}
-    >
-      {whichRender()}
-    </Svg>
+    <IconContainer>
+      <svg
+        width={`${size}px` || "24px"}
+        height={`${size}px` || "24px"}
+        fill={fill || "none"}
+        stroke={color || "black"}
+        strokeWidth={strokeWidth || "2px"}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...rest}
+      >
+        {whichRender()}
+      </svg>
+    </IconContainer>
   );
 };
