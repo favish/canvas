@@ -8,7 +8,7 @@ interface SvgProps extends SpaceProps {
 }
 
 export interface IconProps extends SvgProps {
-  icon: IconEnum;
+  icon: IconEnum | string;
   color?: string;
   fill?: string;
   size?: number;
