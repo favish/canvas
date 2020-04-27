@@ -4,14 +4,6 @@ title: 'ButtonDropdown'
 body: "Button dropdown component aka select (needs improvements)"
 note: ""
 types: '
-  { "variant": "primary | secondary | error" ,
-    "size" : "default | small | tiny" ,
-    "bg": "string",
-    "backgroundColor": "string" ,
-    "color": "string",
-    "text": "string",
-    "isLoading": "boolean",
-    "loader": "Component" }
 '
 ---
 ```jsx
@@ -43,4 +35,16 @@ return (
     </ButtonDropdown>
   </Box>
 );
+ ```
+ ```
+ interface ButtonDropdownProps {
+    bg?: string;
+    backgroundColor?: string;
+    color?: string;
+    isLoading?: boolean;
+    loader?: JSX.Element 
+    size?: "default" | "small" | "tiny";
+    text: string | JSX.Element; 
+    variant?: "primary" | "secondary" | "error"; // if undefined,it renders primary
+ }
  ```

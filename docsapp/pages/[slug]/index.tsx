@@ -8,13 +8,17 @@ import Layout from '../../components/Layout'
 import ExampleRouter from '../../examples/ExampleRouter'
 import { Box } from '@rsbear/canvas'
 import styled from 'styled-components'
+import IconGrid from '../../examples/IconGrid'
 
 const CodeWrapper = styled.div`
   pre {
     padding: 20px;
-    border: solid 1px rgba(160, 160, 160, 0.4);
-    border-radius: 8px;
-    border-width: 2px;
+
+    &:nth-of-type(1) {
+      border: solid 1px rgba(160, 160, 160, 0.4);
+      border-radius: 8px;
+      border-width: 2px;
+    }
   }
 `
 
@@ -25,11 +29,12 @@ export default function BlogTemplate({ frontmatter, markdownBody }) {
   return (
     <Layout siteTitle={frontmatter.title}>
       <Box my={4}>
-        <ExampleRouter route={router.asPath} />
+        <ExampleRouter route={router.query.slug} />
       </Box>
       <CodeWrapper>
         <ReactMarkdown source={markdownBody} />
       </CodeWrapper>
+      {router.query.slug === 'icon' && <IconGrid />}
     </Layout>
   )
 }

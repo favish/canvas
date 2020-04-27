@@ -7,18 +7,20 @@ import TooltipExample from './TooltipExample'
 import ModalExample from './ModalExample'
 import ImageExample from './ImageExample'
 import IconExample from './IconExample'
+import FlexExample from './FlexExample'
 
 const ExampleRouter: React.FC<any> = ({ route }) => {
   return (
     <>
-      {route === '/notify' && <NotifyExample />}
-      {route === '/button' && <ButtonExample />}
-      {route === '/buttondropdown' && <ButtonDropdownExample />}
-      {route === '/icon' && <IconExample />}
-      {route === '/input' && <InputExample />}
-      {route === '/tooltip' && <TooltipExample />}
-      {route === '/modal' && <ModalExample />}
-      {route === '/image' && <ImageExample />}
+      {route === 'button' && <ButtonExample />}
+      {route === 'buttondropdown' && <ButtonDropdownExample />}
+      {route === 'flex' && <FlexExample />}
+      {route === 'icon' && <IconExample />}
+      {route === 'image' && <ImageExample />}
+      {route === 'input' && <InputExample />}
+      {route === 'notify' && <NotifyExample />}
+      {route === 'modal' && <ModalExample />}
+      {route === 'tooltip' && <TooltipExample />}
     </>
   )
 }

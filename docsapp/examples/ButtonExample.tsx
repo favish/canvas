@@ -18,6 +18,7 @@ const ButtonExample: React.FC<any> = () => {
           mr={2}
           role="button"
           text="Primary"
+          minWidth="80px"
           loading={submitting}
           onClick={() => setSubmitting(true)}
         />
