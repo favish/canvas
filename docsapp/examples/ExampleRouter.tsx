@@ -6,6 +6,7 @@ import InputExample from './InputExample'
 import TooltipExample from './TooltipExample'
 import ModalExample from './ModalExample'
 import ImageExample from './ImageExample'
+import IconExample from './IconExample'
 
 const ExampleRouter: React.FC<any> = ({ route }) => {
   return (
@@ -13,6 +14,7 @@ const ExampleRouter: React.FC<any> = ({ route }) => {
       {route === '/notify' && <NotifyExample />}
       {route === '/button' && <ButtonExample />}
       {route === '/buttondropdown' && <ButtonDropdownExample />}
+      {route === '/icon' && <IconExample />}
       {route === '/input' && <InputExample />}
       {route === '/tooltip' && <TooltipExample />}
       {route === '/modal' && <ModalExample />}

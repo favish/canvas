@@ -80,7 +80,7 @@ const Navigation: React.FC<{}> = () => {
         Loaders
       </Sans>
       <Sans fontSize={14}>
-        <a href="/icons">Icon</a>
+        <a href="/icon">Icon</a>
       </Sans>
       <Sans fontSize={14}>
         <a href="/image">Image</a>
