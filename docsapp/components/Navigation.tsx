@@ -83,6 +83,9 @@ const Navigation: React.FC<{}> = () => {
         <a href="/icon">Icon</a>
       </Sans>
       <Sans fontSize={14}>
+        <a href="/radio">Radio</a>
+      </Sans>
+      <Sans fontSize={14}>
         <a href="/image">Image</a>
       </Sans>
     </BorderBox>

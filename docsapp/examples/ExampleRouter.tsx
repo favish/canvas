@@ -8,6 +8,7 @@ import ModalExample from './ModalExample'
 import ImageExample from './ImageExample'
 import IconExample from './IconExample'
 import FlexExample from './FlexExample'
+import RadioExample from './RadioExample'
 
 const ExampleRouter: React.FC<any> = ({ route }) => {
   return (
@@ -20,6 +21,7 @@ const ExampleRouter: React.FC<any> = ({ route }) => {
       {route === 'input' && <InputExample />}
       {route === 'notify' && <NotifyExample />}
       {route === 'modal' && <ModalExample />}
+      {route === 'radio' && <RadioExample />}
       {route === 'tooltip' && <TooltipExample />}
     </>
   )

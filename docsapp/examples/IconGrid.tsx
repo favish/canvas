@@ -291,7 +291,7 @@ const IconGrid: React.FC<any> = () => {
     <Flex flexWrap="wrap">
       {iconMap.map((x: string) => (
         <Flex alignItems="center" width="50%" my={1} key={x}>
-          {/* <Icon icon={x} mr={2} color="rgba(10,10,10,.6)" /> */}
+          <Icon icon={x} mr={2} color="rgba(10,10,10,.6)" />
           <Sans>{x}</Sans>
         </Flex>
       ))}
