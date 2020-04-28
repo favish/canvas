@@ -5,6 +5,7 @@ import ButtonDropdownExample from './ButtonDropdownExample'
 import InputExample from './InputExample'
 import TooltipExample from './TooltipExample'
 import ModalExample from './ModalExample'
+import GridExample from './GridExample'
 import ImageExample from './ImageExample'
 import IconExample from './IconExample'
 import FlexExample from './FlexExample'
@@ -16,6 +17,7 @@ const ExampleRouter: React.FC<any> = ({ route }) => {
       {route === 'button' && <ButtonExample />}
       {route === 'buttondropdown' && <ButtonDropdownExample />}
       {route === 'flex' && <FlexExample />}
+      {route === 'grid' && <GridExample />}
       {route === 'icon' && <IconExample />}
       {route === 'image' && <ImageExample />}
       {route === 'input' && <InputExample />}

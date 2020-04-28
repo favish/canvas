@@ -5,6 +5,7 @@ export * from "./ButtonDropdown";
 export * from "./Divider";
 export * from "./Flex";
 export * from "./GlobalStyles";
+export * from "./Grid";
 export * from "./Icon";
 export * from "./Image";
 export * from "./Input";

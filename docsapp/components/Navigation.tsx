@@ -39,6 +39,11 @@ const Navigation: React.FC<{}> = () => {
           <a>Flex</a>
         </Link>
       </Sans>
+      <Sans fontSize={14}>
+        <Link href="/[slug]" as="/grid">
+          <a>Grid</a>
+        </Link>
+      </Sans>
       <Sans fontSize={14} fontWeight={600} textTransform="uppercase" mt={20}>
         Buttons &amp; Inputs
       </Sans>

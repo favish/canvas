@@ -24,9 +24,9 @@ interface TipProps {
 }
 
 const TipContainer = styled.div<TipProps>`
-  width: ${(p) => p.width}px;
+  width: ${p => p.width}px;
   border-radius: 3px;
-  background-color: ${(p) =>
+  background-color: ${p =>
     p.backgroundColor || p.bg ? p.bg || p.backgroundColor : "white"};
   border: none;
   bottom: 100%;
@@ -39,10 +39,10 @@ const TipContainer = styled.div<TipProps>`
   transform-style: preserve-3d;
   transition: opacity 200ms ease-out;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-  transform: ${(p) => (p.tipPosition.center ? "translate(-50%)" : "none")};
-  left: ${(p) =>
+  transform: ${p => (p.tipPosition.center ? "translate(-50%)" : "none")};
+  left: ${p =>
     p.tipPosition.left === null ? "auto" : `${p.tipPosition.left}px`};
-  right: ${(p) =>
+  right: ${p =>
     p.tipPosition.right === null ? "auto" : `${p.tipPosition.right}px`};
   &:hover {
     cursor: default;
@@ -60,7 +60,7 @@ const TipContainer = styled.div<TipProps>`
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: ${(p) =>
+    background-color: ${p =>
       p.backgroundColor || p.bg ? p.bg || p.backgroundColor : "white"};
     transform: rotate(45deg) translateZ(-1px);
     bottom: -5px;
@@ -73,7 +73,7 @@ const TipContainer = styled.div<TipProps>`
     width: 100%;
     height: 100%;
     border-radius: 3px;
-    background-color: ${(p) =>
+    background-color: ${p =>
       p.backgroundColor || p.bg ? p.bg || p.backgroundColor : "white"};
     transform: translateZ(-2px);
     top: 0;
@@ -96,12 +96,12 @@ export interface TooltipProps {
   color?: string;
 }
 
-export const Tooltip: React.FC<any> = (props) => {
-  const [active, setActive] = React.useState(true);
+export const Tooltip: React.FC<any> = props => {
+  const [active, setActive] = React.useState(false);
   const [tipPosition, setTipPosition] = React.useState<TipPosition>({
     left: 0,
     center: false,
-    right: null,
+    right: null
   });
 
   const innerWrapper: any = React.useRef<HTMLDivElement>();
@@ -139,7 +139,7 @@ export const Tooltip: React.FC<any> = (props) => {
     return {
       center,
       left,
-      right,
+      right
     };
   };
 

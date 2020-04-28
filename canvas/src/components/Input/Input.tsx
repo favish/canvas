@@ -9,7 +9,7 @@ import {
   HeightProps,
   WidthProps,
   TypographyProps,
-  typography,
+  typography
 } from "styled-system";
 import styled from "styled-components";
 
@@ -19,8 +19,8 @@ interface ContainerProps
     SpaceProps,
     TypographyProps,
     WidthProps {
-  activeBorder?: string;
-  activeShadow?: string;
+  activeBorder?: string | null;
+  activeShadow?: string | null;
   error?: boolean;
   border?: string;
   borderColor?: string;
@@ -29,8 +29,8 @@ interface ContainerProps
 }
 
 export interface InputProps extends ContainerProps {
-  icon?: any;
-  iconLeft?: any;
+  icon?: JSX.Element;
+  iconRight?: JSX.Element;
   label?: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
@@ -42,6 +42,8 @@ const Container = styled.div<ContainerProps>`
   flex-wrap: nowrap;
   align-items: center;
   height: 40px;
+  padding-left: 2px;
+  padding-right: 2px;
   border-width: 1px;
   border-style: solid;
   transition: all 200ms ease;
@@ -50,15 +52,13 @@ const Container = styled.div<ContainerProps>`
   ${space};
   ${width};
 
-  border: ${(props) => props.border && props.border};
-  border-radius: ${(props) =>
-    props.borderRadius ? props.borderRadius : "4px"};
-  border-color: ${(props) =>
-    props.borderColor ? props.borderColor : "rgb(210,210,210)"};
-  border-width: ${(props) => (props.borderWidth ? props.borderWidth : "1px")};
+  border: ${p => p.border && p.border};
+  border-radius: ${props => (p.borderRadius ? p.borderRadius : "4px")};
+  border-color: ${p => (p.borderColor ? p.borderColor : "rgb(210,210,210)")};
+  border-width: ${p => (p.borderWidth ? p.borderWidth : "1px")};
 
-  ${(props) =>
-    props.error &&
+  ${p =>
+    p.error &&
     `
       border: solid 1px #eb4559;
     `}
@@ -72,24 +72,22 @@ const Container = styled.div<ContainerProps>`
   }
 
   &:focus-within {
-      border: ${(props) =>
-        props.activeBorder
-          ? props.activeBorder
-          : "solid 1px rgba(20, 240, 160, 0.5);"}
-      box-shadow: ${(props) =>
-        props.activeShadow
-          ? props.activeShadow
+      border: ${p =>
+        p.activeBorder ? p.activeBorder : "solid 1px rgba(20, 240, 160, 0.5);"}
+      box-shadow: ${p =>
+        p.activeShadow
+          ? p.activeShadow
           : "0px 0px 0px 2px rgba(20, 240, 160, 0.4)"}
   }
 `;
 
-export const Input: React.FC<InputProps> = (props) => {
+export const Input: React.FC<InputProps> = props => {
   const { onChange, placeholder, ...rest } = props;
   return (
     <Container {...rest}>
       {props.icon && props.icon}
       <input placeholder={placeholder} onChange={onChange} />
-      {props.iconLeft && props.iconLeft}
+      {props.iconRight && props.iconRight}
     </Container>
   );
 };

@@ -4,13 +4,13 @@ import styled from "styled-components";
 import {
   background,
   BackgroundProps,
-  border,
-  BorderProps,
-  color as colorStyles,
+  borders,
+  BordersProps,
+  color as colorStyles
 } from "styled-system";
 import { Flex } from "..";
 
-export interface NotificationProps extends BackgroundProps, BorderProps {
+export interface NotificationProps extends BackgroundProps, BordersProps {
   position?:
     | "topleft"
     | "topright"
@@ -21,56 +21,59 @@ export interface NotificationProps extends BackgroundProps, BorderProps {
   color?: string;
   bg?: string;
   backgroundColor?: string;
+  shadow?: string | null;
 }
 
 const Notification = styled.div<NotificationProps>`
   position: fixed;
   background-color: black;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 15px 20px;
   color: white;
   ${background};
-  ${border};
+  ${borders};
   ${colorStyles};
+
+  box-shadow:${p => (p.shadow ? p.shadow : "0 1px 4px 0 rgba(0, 0, 0, 0.2)")};
   
-  ${(props) =>
-    props.position === "topleft" &&
+  ${p =>
+    p.position === "topleft" &&
     `
       top: 20px;
       left: 20px;
     `}
   
-  ${(props) =>
-    props.position === "topright" &&
+  ${p =>
+    p.position === "topright" &&
     `
       top: 20px;
       right: 20px;
     `}
   
-  ${(props) =>
-    props.position === "bottomright" &&
+  ${p =>
+    p.position === "bottomright" &&
     `
       bottom: 20px;
       right: 20px;
     `}
   
-  ${(props) =>
-    props.position === "bottomleft" &&
+  ${p =>
+    p.position === "bottomleft" &&
     `
       bottom: 20px;
       left: 20px;
     `}
   
-  ${(props) =>
-    props.position === "topcenter" &&
+  ${p =>
+    p.position === "topcenter" &&
     `
       top: 20px;
       left: 50%;
       transform: translateX(-50%);
     `}
 
-  ${(props) =>
-    props.position === "bottomcenter" &&
+  ${p =>
+    p.position === "bottomcenter" &&
     `
       bottom: 20px;
       left: 50%;
@@ -84,7 +87,7 @@ interface NotifyProps extends NotificationProps {
   setIsOpen: Function;
 }
 
-export const Notify: React.FC<NotifyProps> = (props) => {
+export const Notify: React.FC<NotifyProps> = props => {
   const [open, setOpen] = React.useState<boolean>(false);
   const { children, timeout, isOpen, setIsOpen, ...rest } = props;
 
