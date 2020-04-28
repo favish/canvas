@@ -53,7 +53,7 @@ const Container = styled.div<ContainerProps>`
   ${width};
 
   border: ${p => p.border && p.border};
-  border-radius: ${props => (p.borderRadius ? p.borderRadius : "4px")};
+  border-radius: ${p => (p.borderRadius ? p.borderRadius : "4px")};
   border-color: ${p => (p.borderColor ? p.borderColor : "rgb(210,210,210)")};
   border-width: ${p => (p.borderWidth ? p.borderWidth : "1px")};
 

@@ -18,3 +18,11 @@ note: ''
   <BorderBox borderRadius={4} height={60} width={60} background="teal" />
 </Flex>
 ```
+
+```
+interface GridProps {
+  preset?: number; //we're just creating a basic grid off of how many preset columns
+  columnGap?: number;
+  rowGrap?: number
+}
+```

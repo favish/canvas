@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Input, LoadingDots } from '@rsbear/canvas'
+import { Box, Button, Icon, Input, LoadingDots } from '@rsbear/canvas'
 
 const InputExample: React.FC<any> = () => {
   const [value, setValue] = React.useState<string | null>('')
@@ -21,7 +21,8 @@ const InputExample: React.FC<any> = () => {
         fontSize={14}
         placeholder="email"
         error={err}
-        onChange={(e) => setValue(e.target.value)}
+        icon={<Icon icon="mail" size={16} />}
+        onChange={e => setValue(e.target.value)}
       />
       <Button
         role="button"
@@ -29,7 +30,6 @@ const InputExample: React.FC<any> = () => {
         my={2}
         width={1}
         loading={submitting}
-        loader={<LoadingDots bg="white" />}
         onClick={handleSubmit}
       />
     </Box>
