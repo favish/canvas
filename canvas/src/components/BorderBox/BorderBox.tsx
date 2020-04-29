@@ -3,8 +3,7 @@ import styled from "styled-components";
 import {
   background,
   BackgroundProps,
-  border,
-  BorderProps,
+  BordersProps,
   bottom,
   BottomProps,
   color as colorStyles,
@@ -27,28 +26,29 @@ import {
   WidthProps,
   zIndex,
   ZIndexProps,
+  borders,
 } from "styled-system";
 
 export interface BorderBoxProps
   extends BackgroundProps,
-    BorderProps,
-    BottomProps,
-    ColorStyleProps,
-    DisplayProps,
-    HeightProps,
-    MaxHeightProps,
-    MaxWidthProps,
-    OrderProps,
-    PositionProps,
-    SpaceProps,
-    WidthProps,
-    ZIndexProps {}
+  BordersProps,
+  BottomProps,
+  ColorStyleProps,
+  DisplayProps,
+  HeightProps,
+  MaxHeightProps,
+  MaxWidthProps,
+  OrderProps,
+  PositionProps,
+  SpaceProps,
+  WidthProps,
+  ZIndexProps { }
 
 export const BorderBox = styled.div<BorderBoxProps>`
   border-style: solid;
   border-width: 0;
   ${background};
-  ${border};
+  ${borders};
   ${bottom};
   ${colorStyles};
   ${display};

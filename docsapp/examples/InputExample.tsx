@@ -21,7 +21,7 @@ const InputExample: React.FC<any> = () => {
         fontSize={14}
         placeholder="email"
         error={err}
-        icon={<Icon icon="mail" size={16} />}
+        icon={<Icon icon="mail" size={16} mx={15} color="rgba(20,20,20,.6)" />}
         onChange={e => setValue(e.target.value)}
       />
       <Button

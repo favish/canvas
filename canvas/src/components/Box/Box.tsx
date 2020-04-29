@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import {
   color as colorStyles,
-  ColorStyleProps,
+  ColorProps,
   background,
   BackgroundProps,
   maxHeight,
@@ -24,24 +24,21 @@ import {
 } from "styled-system";
 
 export interface BoxProps
-  extends ColorStyleProps,
-    BackgroundProps,
-    HeightProps,
-    MaxHeightProps,
-    MaxWidthProps,
-    MinHeightProps,
-    MinWidthProps,
-    PositionProps,
-    WidthProps,
-    SpaceProps {
+  extends ColorProps,
+  BackgroundProps,
+  HeightProps,
+  MaxHeightProps,
+  MaxWidthProps,
+  MinHeightProps,
+  MinWidthProps,
+  PositionProps,
+  WidthProps,
+  SpaceProps {
   display?: "block" | "inline-block";
-  bg?: string;
-  backgroundColor?: string;
-  color?: string;
 }
 
 export const Box = styled.div<BoxProps>`
-  display: ${(props) => props.display};
+  display: ${(p) => p.display};
   ${colorStyles};
   ${background};
   ${height};

@@ -2,11 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import {
-  border,
-  borderRadius,
-  BorderProps,
+  borders,
+  BordersProps,
   color as colorStyles,
-  ColorStyleProps,
+  ColorProps,
   height,
   HeightProps,
   maxHeight,
@@ -27,22 +26,20 @@ import {
 import { LoadingSpinner } from "../LoadingSpinner";
 
 export interface ButtonStyleProps
-  extends BorderProps,
-    ColorStyleProps,
-    HeightProps,
-    MaxHeightProps,
-    MaxWidthProps,
-    MinHeightProps,
-    MinWidthProps,
-    SpaceProps,
-    TypographyProps,
-    WidthProps {
-  bg?: string;
-  backgroundColor?: string;
+  extends BordersProps,
+  ColorProps,
+  HeightProps,
+  MaxHeightProps,
+  MaxWidthProps,
+  MinHeightProps,
+  MinWidthProps,
+  SpaceProps,
+  TypographyProps,
+  WidthProps {
   borderColor?: string;
   borderWidth?: number;
   color?: string;
-  height?: number;
+  hoverBg?: string;
   size?: "default" | "small";
   variant?: "primary" | "secondary" | "disabled";
   width?: number;
@@ -68,12 +65,11 @@ font-size: 14px;
 font-weight: 600;
 border-style: solid;
 border-width: 0;
-border-radius: 5px;
+border-radius: 3px;
 cursor: pointer;
 transition: all 180ms ease;
 
-${border};
-${borderRadius};
+${borders};
 ${colorStyles};
 ${height};
 ${maxHeight};
@@ -90,42 +86,42 @@ ${width};
 }
 
 ${(p) =>
-  (p.variant === "primary" || !p.variant) &&
-  `
+    (p.variant === "primary" || !p.variant) &&
+    `
       height: 40px;
       background-color: ${
-        p.bg || p.backgroundColor ? p.bg || p.backgroundColor : "rgb(40,40,40)"
-      };
+    p.bg || p.backgroundColor ? p.bg || p.backgroundColor : "rgb(40,40,40)"
+    };
 
       &:hover {
-        opacity: .6;
+        opacity: ${p => p.hoverBg ? p.hoverBg : "rgb(10,10,10)"};
       }
     `}
 
 ${(props) =>
-  props.variant === "disabled" &&
-  `
+    props.variant === "disabled" &&
+    `
       height: 40px;
       cursor: not-allowed;
       background-color: ${
-        props.bg || props.backgroundColor
-          ? props.bg || props.backgroundColor
-          : "rgb(230,230,230)"
-      };
+    props.bg || props.backgroundColor
+      ? props.bg || props.backgroundColor
+      : "rgb(230,230,230)"
+    };
     `}
 
 ${(props) =>
-  props.variant === "secondary" &&
-  `
+    props.variant === "secondary" &&
+    `
       height: 40px;
       background-color: ${
-        props.bg || props.backgroundColor
-          ? props.bg || props.backgroundColor
-          : "transparent"
-      };
+    props.bg || props.backgroundColor
+      ? props.bg || props.backgroundColor
+      : "transparent"
+    };
       border-color: ${
-        props.borderColor ? props.borderColor : "rgba(50,50,50,.2)"
-      };
+    props.borderColor ? props.borderColor : "rgba(50,50,50,.2)"
+    };
       border-width: ${props.borderWidth ? `${props.borderWidth}px` : "2px"};
       color: ${props.color ? props.color : "rgb(42,42,42)"};
 
@@ -135,8 +131,8 @@ ${(props) =>
     `}
 
 ${(p) =>
-  p.size === "small" &&
-  `
+    p.size === "small" &&
+    `
       font-size: 12px;
       height: ${p.height ? p.height : "24px"};
     `}
@@ -165,10 +161,10 @@ export const Button: React.FC<ButtonProps> = (props) => {
           {iconRight && iconRight}
         </ButtonStyle>
       ) : (
-        <ButtonStyle variant="disabled" {...rest}>
-          {!loading ? text : loaderNull}
-        </ButtonStyle>
-      )}
+          <ButtonStyle variant="disabled" {...rest}>
+            {!loading ? text : loaderNull}
+          </ButtonStyle>
+        )}
     </>
   );
 };

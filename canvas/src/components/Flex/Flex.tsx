@@ -10,7 +10,7 @@ import {
   bottom,
   BottomProps,
   color as colorStyles,
-  ColorStyleProps,
+  ColorProps,
   flexBasis,
   FlexBasisProps,
   flexDirection,
@@ -48,28 +48,25 @@ const flexGrow = style({
 
 export interface FlexProps
   extends AlignItemsProps,
-    AlignContentProps,
-    BackgroundProps,
-    BottomProps,
-    ColorStyleProps,
-    FlexBasisProps,
-    FlexDirectionProps,
-    FlexWrapProps,
-    HeightProps,
-    JustifyContentProps,
-    MinHeightProps,
-    MinWidthProps,
-    MaxHeightProps,
-    MaxWidthProps,
-    OrderProps,
-    PositionProps,
-    SpaceProps,
-    WidthProps,
-    ZIndexProps {
+  AlignContentProps,
+  BackgroundProps,
+  BottomProps,
+  ColorProps,
+  FlexBasisProps,
+  FlexDirectionProps,
+  FlexWrapProps,
+  HeightProps,
+  JustifyContentProps,
+  MinHeightProps,
+  MinWidthProps,
+  MaxHeightProps,
+  MaxWidthProps,
+  OrderProps,
+  PositionProps,
+  SpaceProps,
+  WidthProps,
+  ZIndexProps {
   flexGrow?: number | string;
-  bg?: string;
-  backgroundColor?: string;
-  color?: string;
 }
 
 export const Flex = styled.div<FlexProps>`
