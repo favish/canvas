@@ -1,6 +1,6 @@
 ### Canvas
 
-![github package repo](https://github.com/rsbear/canvas/workflows/Publish%20Canvas/badge.svg?branch=master)
+![canvas](https://github.com/rsbear/canvas/workflows/canvas/badge.svg?branch=master)
 
 ```
 yarn add @rsbear/canvas styled-components

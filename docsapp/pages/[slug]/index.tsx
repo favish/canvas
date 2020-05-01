@@ -11,6 +11,10 @@ import styled from 'styled-components'
 import IconGrid from '../../examples/IconGrid'
 
 const CodeWrapper = styled.div`
+  h2 {
+    font-weight: 500;
+    margin-top: 20px;
+  }
   pre {
     padding: 20px;
 
@@ -19,6 +23,17 @@ const CodeWrapper = styled.div`
       border-radius: 8px;
       border-width: 2px;
     }
+  }
+  table {
+    width: 100%;
+  }
+  th {
+    text-align: left !important;
+  }
+  td {
+    width: 33%;
+    text-align: left !important;
+    border-bottom: solid 1px aquamarine;
   }
 `
 
@@ -57,12 +72,12 @@ export async function getStaticPaths() {
   const markdowns = glob.sync('src/markdowns/**/*.md')
 
   //remove path and extension to leave filename only
-  const markdownSlugs = markdowns.map((file) =>
+  const markdownSlugs = markdowns.map(file =>
     file.split('/')[2].replace(/ /g, '-').slice(0, -3).trim()
   )
 
   // create paths with `slug` param
-  const paths = markdownSlugs.map((slug) => `/${slug}`)
+  const paths = markdownSlugs.map(slug => `/${slug}`)
   return {
     paths,
     fallback: true,

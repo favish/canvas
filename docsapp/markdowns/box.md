@@ -1,21 +1,23 @@
 ---
 layout: page
 title: 'Box'
-body: "Div container component"
-note: ""
-types: '{ 
-  "display": "block | inline-block",
-  "m": "number",
-  "my": "number",
-  "mx": "number",
-  "mt": "number",
-  "mr": "number",
-  "mb": "number"
-  }'
+tagline: 'Div container component'
+note: ''
 ---
 
 ```jsx
-<Box>
-  yes
-</Box>
- ```
+<Box>yes</Box>
+```
+
+## All spacing props are available.
+
+| prop      | css value  | type                      |
+| --------- | ---------- | ------------------------- |
+| display   | display    | "block" \| "inline-block" |
+| position  | position   | string                    |
+| height    | height     | number \| string          |
+| maxHeight | max-height | number \| string          |
+| minHeight | min-height | number \| string          |
+| width     | width      | number \| string          |
+| maxWidth  | max-width  | number \| string          |
+| minWidth  | min-width  | number \| string          |
