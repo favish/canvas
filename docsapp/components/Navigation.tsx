@@ -76,7 +76,6 @@ const Navigation: React.FC<{}> = () => {
         </Link>
       </Sans>
       <Sans fontSize={14}>
-        <a href="/modal">Modal</a>
         <Link href="/[slug]" as="/modal">
           <a>Modal</a>
         </Link>

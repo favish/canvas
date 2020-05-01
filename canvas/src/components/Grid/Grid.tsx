@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { space, SpaceProps } from "styled-system";
 
 export interface GridProps {
   preset?: 1 | 2 | 3 | 4 | 5;
@@ -9,6 +10,7 @@ export interface GridProps {
 
 export const Grid = styled.div<GridProps>`
   display: grid;
+  ${space}
 
   ${p =>
     p.preset &&
