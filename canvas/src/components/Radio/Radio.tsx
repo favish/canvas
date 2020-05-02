@@ -48,6 +48,7 @@ export const Radio: React.FC<RadioProps> = props => {
     onClick,
     spacing,
     size,
+    text,
     ...otherProps
   } = props;
 
@@ -63,7 +64,7 @@ export const Radio: React.FC<RadioProps> = props => {
         mr={!spacing ? "10px" : spacing}
       />
       <Sans fontSize={fontSize} fontWeight={fontWeight}>
-        Date descending
+        {text}
       </Sans>
     </RadioContainer>
   );
