@@ -1,16 +1,30 @@
 import React from "react";
 import { Icon } from "../Icon";
+import { Sans } from "../Sans";
 import styled from "styled-components";
 import { space, SpaceProps } from "styled-system";
 
-export interface RadioProps extends SpaceProps {
-  active?: boolean;
+export interface RadioContainerProps extends SpaceProps {
   activeColor?: string;
+  className?: string;
   color?: string;
   size?: number;
 }
 
-const RadioContainer = styled.div<RadioProps>`
+export interface RadioProps extends RadioContainerProps {
+  active?: boolean;
+  fontSize?: number | string;
+  fontWeight?: number;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  spacing?: string;
+  text?: string;
+}
+
+const RadioContainer = styled.div<RadioContainerProps>`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  ${space};
   svg {
     stroke: ${p => (p.color ? p.color : "rgba(20,20,20,.6)")};
     transition: all 180ms ease-in-out;
@@ -26,15 +40,31 @@ const RadioContainer = styled.div<RadioProps>`
 `;
 
 export const Radio: React.FC<RadioProps> = props => {
-  const { active, size, ...otherProps } = props;
+  // other props are shit like spacing and activeColor
+  const {
+    active,
+    fontSize,
+    fontWeight,
+    onClick,
+    spacing,
+    size,
+    ...otherProps
+  } = props;
 
   return (
-    <RadioContainer className={active ? "active" : undefined} {...otherProps}>
-      {!active ? (
-        <Icon icon="circle" size={size} />
-      ) : (
-        <Icon icon="check-circle" size={size} />
-      )}
+    <RadioContainer
+      className={active ? "active" : undefined}
+      onClick={onClick}
+      {...otherProps}
+    >
+      <Icon
+        icon={!active ? "circle" : "check-circle"}
+        size={18}
+        mr={!spacing ? "10px" : spacing}
+      />
+      <Sans fontSize={fontSize} fontWeight={fontWeight}>
+        Date descending
+      </Sans>
     </RadioContainer>
   );
 };

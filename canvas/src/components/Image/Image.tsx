@@ -2,19 +2,21 @@ import React from "react";
 import styled from "styled-components";
 
 export interface OuterProps {
+  shadow?: string;
   shape: "rect" | "square";
 }
 
 export interface ImageProps extends OuterProps {
-  src: string;
   alt?: string;
+  src: string;
 }
 
 const Outer = styled.div<OuterProps>`
-  ${(p) =>
+  ${p =>
     p.shape === "square" &&
     `
   position: relative;
+  display: block;
   &:before {
     content: '';
     display: block;
@@ -29,10 +31,11 @@ const Outer = styled.div<OuterProps>`
     left: 0;
   }
   `}
-  ${(p) =>
+  ${p =>
     p.shape === "rect" &&
     `
   position: relative;
+  display: block;
   &:before {
     content: '';
     display: block;
@@ -57,9 +60,9 @@ const Img = styled.img`
   object-position: 50% 50%;
 `;
 
-export const Image: React.FC<ImageProps> = ({ shape, src, alt }) => {
+export const Image: React.FC<ImageProps> = ({ shadow, shape, src, alt }) => {
   return (
-    <Outer shape={shape}>
+    <Outer shape={shape} shadow={shadow}>
       <div className="inner">
         <Img src={src} alt={!alt ? "" : alt} />
       </div>

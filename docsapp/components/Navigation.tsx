@@ -58,6 +58,9 @@ const Navigation: React.FC<{}> = () => {
         </Link>
       </Sans>
       <Sans fontSize={14}>
+        <a href="/radio">Radio</a>
+      </Sans>
+      <Sans fontSize={14}>
         <Link href="/[slug]" as="/input">
           <a>Input</a>
         </Link>
@@ -81,13 +84,10 @@ const Navigation: React.FC<{}> = () => {
         </Link>
       </Sans>
       <Sans fontSize={14} fontWeight={600} textTransform="uppercase" mt={20}>
-        Loaders
+        Extras
       </Sans>
       <Sans fontSize={14}>
         <a href="/icon">Icon</a>
-      </Sans>
-      <Sans fontSize={14}>
-        <a href="/radio">Radio</a>
       </Sans>
       <Sans fontSize={14}>
         <a href="/image">Image</a>
