@@ -60,7 +60,7 @@ export const Radio: React.FC<RadioProps> = props => {
     >
       <Icon
         icon={!active ? "circle" : "check-circle"}
-        size={18}
+        size={!size ? 18 : size}
         mr={!spacing ? "10px" : spacing}
       />
       <Sans fontSize={fontSize} fontWeight={fontWeight}>

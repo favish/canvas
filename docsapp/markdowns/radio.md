@@ -19,18 +19,14 @@ body: 'Radio buttons'
 </Flex>
 ```
 
-export interface RadioContainerProps extends SpaceProps {
-  activeColor?: string;
-  className?: string;
-  color?: string;
-  size?: number;
-}
+## All spacing props are available.
 
-export interface RadioProps extends RadioContainerProps {
-  active?: boolean;
-  fontSize?: number | string;
-  fontWeight?: number;
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
-  spacing?: string;
-  text?: string;
-}
+| prop           | value       | type                                                      |
+| -------------- | --------------- | --------------------------------------------------------- |
+| active         | boolean         | boolean                                                    |
+| activeColor    | css color| string                                                    |
+| fontSize  |  font-size | string \| number                                                    |
+| fontWeight      | font-weight      | number                                           |
+| onClick       | event       | e: React.MouseEvent<HTMLDivElement> => void               |
+| spacing       | space between icon and text       | number \| string                    |
+| text | text-value | string|
