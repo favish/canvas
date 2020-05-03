@@ -58,6 +58,11 @@ const Navigation: React.FC<{}> = () => {
         </Link>
       </Sans>
       <Sans fontSize={14}>
+        <Link href="/[slug]" as="/tag">
+          <a>Tag</a>
+        </Link>
+      </Sans>
+      <Sans fontSize={14}>
         <a href="/radio">Radio</a>
       </Sans>
       <Sans fontSize={14}>

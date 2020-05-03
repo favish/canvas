@@ -16,5 +16,6 @@ export * from "./Modal";
 export * from "./Notify";
 export * from "./Radio";
 export * from "./Sans";
+export * from "./Tag";
 export * from "./Theme";
 export * from "./Tooltip";

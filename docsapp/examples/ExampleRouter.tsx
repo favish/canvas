@@ -10,6 +10,7 @@ import ImageExample from './ImageExample'
 import IconExample from './IconExample'
 import FlexExample from './FlexExample'
 import RadioExample from './RadioExample'
+import TagExample from './TagExample'
 
 const ExampleRouter: React.FC<any> = ({ route }) => {
   return (
@@ -24,6 +25,7 @@ const ExampleRouter: React.FC<any> = ({ route }) => {
       {route === 'notify' && <NotifyExample />}
       {route === 'modal' && <ModalExample />}
       {route === 'radio' && <RadioExample />}
+      {route === 'tag' && <TagExample />}
       {route === 'tooltip' && <TooltipExample />}
     </>
   )
