@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "../Icon";
 import styled from "styled-components";
 import {
   border,
@@ -9,17 +10,16 @@ import {
   space,
   SpaceProps
 } from "styled-system";
-import { Icon } from "../Icon";
 
 export interface TagContainerProps
   extends BorderProps,
     HeightProps,
     SpaceProps {
   active?: boolean;
-  activeColor?: string;
-  activeBorder?: string;
   color?: string;
   bg?: string;
+  hoverColor?: string;
+  hoverBorder?: string;
   backgroundColor?: string;
 }
 
@@ -42,6 +42,13 @@ const TagContainer = styled.button<TagContainerProps>`
   font-size: 13px;
   cursor: pointer;
   transition: all 180ms ease;
+
+  ${p =>
+    p.active &&
+    `
+    background-color: #d4d4d4;
+  `}
+
   ${border};
   ${color};
   ${height};
@@ -60,8 +67,8 @@ const TagContainer = styled.button<TagContainerProps>`
   }
 
   &:hover {
-    background-color: ${p => (p.activeColor ? p.activeColor : "#D4D4D4")};
-    border: ${p => (p.activeBorder ? p.activeBorder : 0)};
+    background-color: ${p => (p.hoverColor ? p.hoverColor : "#D4D4D4")};
+    border: ${p => (p.hoverBorder ? p.hoverBorder : 0)};
   }
 `;
 

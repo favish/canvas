@@ -1,13 +1,12 @@
 import React from 'react'
 import { Flex, Tag } from '@rsbear/canvas'
 
-
 const TagExample: React.FC<any> = () => {
-  const [activeTags, setActiveTags] = React.useState(["steve zissou"])
+  const [activeTags, setActiveTags] = React.useState(['steve zissou'])
   const [suggestedTags, setSuggestedTags] = React.useState([
-  "the life aquatic",
-  "red beanie",
-  "submarine"
+    'the life aquatic',
+    'red beanie',
+    'submarine',
   ])
 
   const onAddActiveTag = (tag: string) => {
@@ -30,11 +29,24 @@ const TagExample: React.FC<any> = () => {
 
   return (
     <Flex flexWrap="wrap">
-      {activeTags.map((x) => (
-        <Tag active={true} text={x} mr={15} onClick={() => onRemoveActiveTag(x)} />
+      {activeTags.map(x => (
+        <Tag
+          active={true}
+          text={x}
+          mr={15}
+          onClick={() => onRemoveActiveTag(x)}
+          bg="rgba(60,180,230,.1)"
+          color="#005FD7"
+        />
       ))}
-      {suggestedTags.map((x) => (
-        <Tag active={false} text={x} key={x} mr={2} onClick={() => onAddActiveTag(x)} />
+      {suggestedTags.map(x => (
+        <Tag
+          active={false}
+          text={x}
+          key={x}
+          mr={2}
+          onClick={() => onAddActiveTag(x)}
+        />
       ))}
     </Flex>
   )
