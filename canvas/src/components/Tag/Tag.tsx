@@ -77,6 +77,7 @@ export const Tag: React.FC<TagProps> = ({
       active={active}
       color={!color ? "#474747" : color}
       {...otherProps}
+      onClick={onClick}
     >
       <span>{text}</span>
       <div className={!active ? undefined : "divider"} />

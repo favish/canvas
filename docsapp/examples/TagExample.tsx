@@ -9,26 +9,34 @@ const TagExample: React.FC<any> = () => {
   "submarine"
   ])
 
-  const onAddTag = (tag: string) => {
+  const onAddActiveTag = (tag: string) => {
+    console.log(tag)
     setActiveTags(prev => {
       return [...prev, tag]
     })
+    setSuggestedTags(prev => {
+      const filtered = prev.filter(x => x !== tag)
+      return [...prev, ...filtered]
+    })
   }
 
-  const onRemoveTag = (tag: string) => {
+  const onRemoveActiveTag = (tag) => {
+    setActiveTags(prev => {
+      const filtered = prev.filter(x => x !== tag)
+      return [...prev, ...filtered]
+    })
     setSuggestedTags(prev => {
-      const filterd = suggestedTags.filter(x => x !== tag)
-      return [...prev, filterd]
+      return [...prev, tag]
     })
   }
 
   return (
     <Flex>
       {activeTags.map((x) => (
-        <Tag active={true} text={x} mr={15} />
+        <Tag active={true} text={x} mr={15} onClick={() => onRemoveActiveTag(x)} />
       ))}
       {suggestedTags.map((x) => (
-        <Tag active={false} text={x} key={x} mr={2} />
+        <Tag active={false} text={x} key={x} mr={2} onClick={() => onAddActiveTag(x)} />
       ))}
     </Flex>
   )
