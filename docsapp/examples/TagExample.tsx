@@ -1,6 +1,7 @@
 import React from 'react'
 import { Flex, Tag } from '@rsbear/canvas'
 
+
 const TagExample: React.FC<any> = () => {
   const [activeTags, setActiveTags] = React.useState(["steve zissou"])
   const [suggestedTags, setSuggestedTags] = React.useState([
@@ -10,7 +11,6 @@ const TagExample: React.FC<any> = () => {
   ])
 
   const onAddActiveTag = (tag: string) => {
-    console.log(tag)
     setActiveTags(prev => {
       return [...prev, tag]
     })
@@ -19,7 +19,7 @@ const TagExample: React.FC<any> = () => {
     })
   }
 
-  const onRemoveActiveTag = (tag) => {
+  const onRemoveActiveTag = (tag: string) => {
     setActiveTags(prev => {
       return prev.filter(x => x !== tag)
     })
