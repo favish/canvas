@@ -15,15 +15,13 @@ const TagExample: React.FC<any> = () => {
       return [...prev, tag]
     })
     setSuggestedTags(prev => {
-      const filtered = prev.filter(x => x !== tag)
-      return [...prev, ...filtered]
+      return prev.filter(x => x !== tag)
     })
   }
 
   const onRemoveActiveTag = (tag) => {
     setActiveTags(prev => {
-      const filtered = prev.filter(x => x !== tag)
-      return [...prev, ...filtered]
+      return prev.filter(x => x !== tag)
     })
     setSuggestedTags(prev => {
       return [...prev, tag]
@@ -31,7 +29,7 @@ const TagExample: React.FC<any> = () => {
   }
 
   return (
-    <Flex>
+    <Flex flexWrap="wrap">
       {activeTags.map((x) => (
         <Tag active={true} text={x} mr={15} onClick={() => onRemoveActiveTag(x)} />
       ))}

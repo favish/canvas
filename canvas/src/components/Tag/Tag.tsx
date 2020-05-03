@@ -48,7 +48,7 @@ const TagContainer = styled.button<TagContainerProps>`
   ${space};
 
   span {
-    margin-right: 8px;
+    margin-right: ${p => (p.active ? "8px" : undefined)};
   }
 
   & .divider {
