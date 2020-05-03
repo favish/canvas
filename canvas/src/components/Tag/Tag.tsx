@@ -15,6 +15,7 @@ export interface TagContainerProps
   extends BorderProps,
     HeightProps,
     SpaceProps {
+  active?: boolean;
   activeColor?: string;
   activeBorder?: string;
   color?: string;
@@ -23,7 +24,6 @@ export interface TagContainerProps
 }
 
 export interface TagProps extends TagContainerProps {
-  active?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   text?: string;
 }
@@ -73,9 +73,13 @@ export const Tag: React.FC<TagProps> = ({
   ...otherProps
 }) => {
   return (
-    <TagContainer color={!color ? "#474747" : color} {...otherProps}>
+    <TagContainer
+      active={active}
+      color={!color ? "#474747" : color}
+      {...otherProps}
+    >
       <span>{text}</span>
-      <div className="divider" />
+      <div className={!active ? undefined : "divider"} />
       {active && <Icon icon="x" size={10} color={!color ? "#474747" : color} />}
     </TagContainer>
   );
