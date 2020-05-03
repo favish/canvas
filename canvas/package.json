@@ -1,6 +1,6 @@
 {
   "name": "@rsbear/canvas",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "description": "style with style",
   "main": "dist/canvas.js",
   "browser": "dist/canvas.umd.js",
