@@ -17,6 +17,7 @@ export interface TagContainerProps
     SpaceProps {
   active?: boolean;
   color?: string;
+  cursor?: "disable" | "enable";
   bg?: string;
   hoverColor?: string;
   hoverBorder?: string;
@@ -40,7 +41,7 @@ const TagContainer = styled.button<TagContainerProps>`
   background-color: #ebebeb;
   color: ${p => p.color};
   font-size: 13px;
-  cursor: pointer;
+  cursor: ${p => (p.cursor === "disable" ? "default" : "pointer")};
   transition: all 180ms ease;
 
   ${p =>

@@ -29,22 +29,24 @@ const TagExample: React.FC<any> = () => {
 
   return (
     <Flex flexWrap="wrap">
-      {activeTags.map(x => (
+      {activeTags.map((x: string, i: number) => (
         <Tag
           active={true}
           text={x}
-          mr={15}
+          mr={1}
           onClick={() => onRemoveActiveTag(x)}
           bg="rgba(60,180,230,.1)"
           color="#005FD7"
+          hoverColor="rgba(60,180,230,.2)"
+          key={i}
         />
       ))}
-      {suggestedTags.map(x => (
+      {suggestedTags.map((x: string, i: number) => (
         <Tag
           active={false}
           text={x}
-          key={x}
-          mr={2}
+          key={i}
+          mr={1}
           onClick={() => onAddActiveTag(x)}
         />
       ))}
