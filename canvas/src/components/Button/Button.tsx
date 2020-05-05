@@ -56,7 +56,7 @@ export interface ButtonProps extends ButtonStyleProps {
   text: string;
 }
 
-const ButtonStyle = styled.button<any>`
+const ButtonStyle = styled.button<ButtonStyleProps>`
 outline: 0;
 padding-left: 20px;
 padding-right: 20px;
@@ -73,6 +73,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 
+min-width: 100px;
+
 ${borders};
 ${colorStyles};
 ${height};
@@ -84,7 +86,7 @@ ${space};
 ${typography};
 ${width};
 
-  &: disabled {
+&:disabled {
   cursor: none;
   background - color: gray;
 }
@@ -93,9 +95,9 @@ ${p =>
   (p.variant === "primary" || !p.variant) &&
   `
       height: 40px;
-      background-color: ${
-        p.bg || p.backgroundColor ? p.bg || p.backgroundColor : "rgb(40,40,40)"
-      };
+      background-color: rgb(40,40,40);
+      ${colorStyles};
+${minWidth};
 
       &:hover {
         opacity: ${p => (p.hoverBg ? p.hoverBg : "rgb(10,10,10)")};
@@ -107,27 +109,22 @@ ${props =>
   `
       height: 40px;
       cursor: not-allowed;
-      background-color: ${
-        props.bg || props.backgroundColor
-          ? props.bg || props.backgroundColor
-          : "rgb(230,230,230)"
-      };
+      background-color: rgb(230,230,230);
+      ${colorStyles};
+${minWidth};
     `}
 
 ${props =>
   props.variant === "secondary" &&
   `
       height: 40px;
-      background-color: ${
-        props.bg || props.backgroundColor
-          ? props.bg || props.backgroundColor
-          : "transparent"
-      };
+      background-color: transparent;
       border-color: ${
         props.borderColor ? props.borderColor : "rgba(50,50,50,.2)"
       };
       border-width: ${props.borderWidth ? `${props.borderWidth}px` : "2px"};
       color: ${props.color ? props.color : "rgb(42,42,42)"};
+${minWidth};
 
       &:hover {
         opacity: .7;
@@ -139,6 +136,8 @@ ${p =>
   `
       font-size: 12px;
       height: ${p.height ? p.height : "24px"};
+      min-width: 80px;
+      ${minWidth};
     `}
 `;
 

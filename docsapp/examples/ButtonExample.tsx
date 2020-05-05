@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Button, Box, LoadingDots, Icon } from '@rsbear/canvas'
+import { Flex, Button, Box, LoadingSpinner, Icon } from '@rsbear/canvas'
 
 const ButtonExample: React.FC<any> = () => {
   const [submitting, setSubmitting] = React.useState(false)
@@ -12,13 +12,12 @@ const ButtonExample: React.FC<any> = () => {
 
   return (
     <Box>
-      <Flex>
+      <Flex mt={40}>
         <Button
           variant="primary"
           mr={2}
           role="button"
           text="Primary"
-          minWidth="80px"
           loading={submitting}
           onClick={() => setSubmitting(true)}
         />
