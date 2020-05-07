@@ -75,16 +75,6 @@ align-items: center;
 
 min-width: 100px;
 
-${borders};
-${colorStyles};
-${height};
-${maxHeight};
-${maxWidth};
-${minHeight};
-${minWidth};
-${space};
-${typography};
-${width};
 
 &:disabled {
   cursor: none;
@@ -97,7 +87,7 @@ ${p =>
       height: 40px;
       background-color: rgb(40,40,40);
       ${colorStyles};
-${minWidth};
+      ${minWidth};
 
       &:hover {
         opacity: ${p => (p.hoverBg ? p.hoverBg : "rgb(10,10,10)")};
@@ -111,7 +101,7 @@ ${props =>
       cursor: not-allowed;
       background-color: rgb(230,230,230);
       ${colorStyles};
-${minWidth};
+      ${minWidth};
     `}
 
 ${props =>
@@ -124,7 +114,7 @@ ${props =>
       };
       border-width: ${props.borderWidth ? `${props.borderWidth}px` : "2px"};
       color: ${props.color ? props.color : "rgb(42,42,42)"};
-${minWidth};
+      ${minWidth};
 
       &:hover {
         opacity: .7;
@@ -139,6 +129,17 @@ ${p =>
       min-width: 80px;
       ${minWidth};
     `}
+
+${borders};
+${colorStyles};
+${height};
+${maxHeight};
+${maxWidth};
+${minHeight};
+${minWidth};
+${space};
+${typography};
+${width};
 `;
 
 export const Button: React.FC<ButtonProps> = props => {

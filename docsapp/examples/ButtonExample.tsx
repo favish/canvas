@@ -14,7 +14,6 @@ const ButtonExample: React.FC<any> = () => {
     <Box>
       <Flex mt={40}>
         <Button
-          variant="primary"
           mr={2}
           role="button"
           text="Primary"
