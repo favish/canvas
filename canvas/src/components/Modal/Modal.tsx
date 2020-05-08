@@ -4,14 +4,22 @@ import useOutsideClick from "../../hooks/useOutsideClick";
 import {
   borders,
   BordersProps,
+  height,
+  HeightProps,
   maxHeight,
   MaxHeightProps,
   maxWidth,
   MaxWidthProps,
+  minHeight,
+  MinHeightProps,
+  minWidth,
+  MinWidthProps,
   shadow,
   ShadowProps,
   SpaceProps,
   space,
+  width,
+  WidthProps
 } from "styled-system";
 
 interface MaskProps {
@@ -20,10 +28,16 @@ interface MaskProps {
 
 interface ContentProps
   extends BordersProps,
+    HeightProps,
     MaxHeightProps,
     MaxWidthProps,
+    MinHeightProps,
+    MinWidthProps,
     ShadowProps,
-    SpaceProps {}
+    SpaceProps,
+    WidthProps {
+  zIndex?: number;
+}
 
 interface ModalProps extends MaskProps, ContentProps {
   open: boolean;
@@ -45,7 +59,7 @@ const Mask = styled.div<MaskProps>`
   align-items: center;
   overflow: hidden;
 
-  ${(p) =>
+  ${p =>
     !p.maskBg
       ? `background-color: rgba(215,215,215,.6)`
       : `background-color: ${p.maskBg}`}
@@ -58,14 +72,19 @@ const Content = styled.div<ContentProps>`
   box-shadow: 0px 2px 24px rgba(10, 10, 10, 0.2);
   overflow: auto;
 
+  z-index: ${p => p.zIndex};
   ${borders};
+  ${height};
   ${maxHeight};
   ${maxWidth};
+  ${minHeight};
+  ${minWidth};
   ${shadow};
   ${space};
+  ${width};
 `;
 
-export const Modal: React.FC<ModalProps> = (props) => {
+export const Modal: React.FC<ModalProps> = props => {
   const openCallback = React.useCallback(() => {
     props.setOpen(false);
   }, [props.setOpen]);
