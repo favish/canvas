@@ -24,6 +24,7 @@ import {
 
 interface MaskProps {
   maskBg?: string;
+  zIndex?: number;
 }
 
 interface ContentProps
@@ -35,9 +36,7 @@ interface ContentProps
     MinWidthProps,
     ShadowProps,
     SpaceProps,
-    WidthProps {
-  zIndex?: number;
-}
+    WidthProps {}
 
 interface ModalProps extends MaskProps, ContentProps {
   open: boolean;
@@ -59,6 +58,8 @@ const Mask = styled.div<MaskProps>`
   align-items: center;
   overflow: hidden;
 
+  z-index: ${p => p.zIndex};
+
   ${p =>
     !p.maskBg
       ? `background-color: rgba(215,215,215,.6)`
@@ -72,7 +73,6 @@ const Content = styled.div<ContentProps>`
   box-shadow: 0px 2px 24px rgba(10, 10, 10, 0.2);
   overflow: auto;
 
-  z-index: ${p => p.zIndex};
   ${borders};
   ${height};
   ${maxHeight};
@@ -90,13 +90,13 @@ export const Modal: React.FC<ModalProps> = props => {
   }, [props.setOpen]);
   const [ref] = useOutsideClick(openCallback);
 
-  const { maskBg, children, ...rest } = props;
+  const { maskBg, zIndex, children, ...rest } = props;
 
   if (!props.open) {
     return null;
   } else {
     return (
-      <Mask maskBg={maskBg}>
+      <Mask maskBg={maskBg} zIndex={zIndex}>
         <Content ref={ref} {...rest}>
           {children}
         </Content>
