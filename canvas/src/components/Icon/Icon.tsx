@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { space, SpaceProps } from "styled-system";
 
 interface SvgProps extends SpaceProps {
+  cursor?: "none" | "pointer" | "disabled" | "default";
   size?: number;
 }
 
@@ -17,15 +18,16 @@ export interface IconProps extends SvgProps {
 }
 
 const IconContainer = styled.div<SvgProps>`
-  height: ${(p) => (p.size ? `${p.size}px` : "24px")};
-  max-width: ${(p) => (p.size ? `${p.size}px` : "24px")};
+  height: ${p => (p.size ? `${p.size}px` : "24px")};
+  max-width: ${p => (p.size ? `${p.size}px` : "24px")};
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: ${p => p.cursor};
   ${space}
 `;
 
-export const Icon: React.FC<IconProps> = (props) => {
+export const Icon: React.FC<IconProps> = props => {
   const { icon, color, fill, size, strokeWidth, ...rest } = props;
 
   function whichRender() {
