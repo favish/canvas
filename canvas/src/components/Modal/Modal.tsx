@@ -36,7 +36,11 @@ interface ContentProps
     MinWidthProps,
     ShadowProps,
     SpaceProps,
-    WidthProps {}
+    WidthProps {
+  overflowY?: "auto" | "hidden" | "scroll" | "visible";
+  overflowX?: "auto" | "hidden" | "scroll" | "visible";
+  overflow?: "auto" | "hidden" | "scroll" | "visible";
+}
 
 interface ModalProps extends MaskProps, ContentProps {
   open: boolean;
@@ -71,7 +75,10 @@ const Content = styled.div<ContentProps>`
   padding: 40px;
   background: white;
   box-shadow: 0px 2px 24px rgba(10, 10, 10, 0.2);
-  overflow: auto;
+
+  overflow: ${p => p.overflow};
+  overflow-x: ${p => p.overflowX};
+  overflow-y: ${p => p.overflowY};
 
   ${borders};
   ${height};

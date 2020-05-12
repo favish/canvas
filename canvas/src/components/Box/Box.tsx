@@ -20,25 +20,31 @@ import {
   space,
   SpaceProps,
   width,
-  WidthProps,
+  WidthProps
 } from "styled-system";
 
 export interface BoxProps
   extends ColorProps,
-  BackgroundProps,
-  HeightProps,
-  MaxHeightProps,
-  MaxWidthProps,
-  MinHeightProps,
-  MinWidthProps,
-  PositionProps,
-  WidthProps,
-  SpaceProps {
+    BackgroundProps,
+    HeightProps,
+    MaxHeightProps,
+    MaxWidthProps,
+    MinHeightProps,
+    MinWidthProps,
+    PositionProps,
+    WidthProps,
+    SpaceProps {
   display?: "block" | "inline-block";
+  overflowY?: "auto" | "hidden" | "scroll" | "visible";
+  overflowX?: "auto" | "hidden" | "scroll" | "visible";
+  overflow?: "auto" | "hidden" | "scroll" | "visible";
 }
 
 export const Box = styled.div<BoxProps>`
-  display: ${(p) => p.display};
+  display: ${p => p.display};
+  overflow: ${p => p.overflow};
+  overflow-x: ${p => p.overflowX};
+  overflow-y: ${p => p.overflowY};
   ${colorStyles};
   ${background};
   ${height};
