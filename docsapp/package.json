@@ -14,7 +14,7 @@
     "deploy": "yarn build && yarn export"
   },
   "dependencies": {
-    "@rsbear/canvas": "^0.0.46",
+    "@rsbear/canvas": "^0.0.50",
     "fs": "^0.0.1-security",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
@@ -24,6 +24,7 @@
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
     "styled-components": "^5.1.0",
+    "styled-system": "^5.1.5",
     "webpack": "^4.43.0"
   },
   "devDependencies": {

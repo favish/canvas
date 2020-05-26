@@ -71,6 +71,7 @@ const Mask = styled.div<MaskProps>`
 `;
 
 const Content = styled.div<ContentProps>`
+  position: relative;
   max-width: 80%;
   padding: 40px;
   background: white;
