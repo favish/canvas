@@ -89,7 +89,7 @@ export const Input: React.FC<InputProps> = props => {
       <input
         placeholder={placeholder}
         onChange={onChange}
-        role={role ? role : "text"}
+        type={role ? role : "text"}
       />
       {props.iconRight && props.iconRight}
     </Container>
