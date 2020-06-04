@@ -34,6 +34,7 @@ export interface InputProps extends ContainerProps {
   label?: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
+  role?: "text" | "password" | "number";
 }
 
 const Container = styled.div<ContainerProps>`
@@ -81,11 +82,15 @@ const Container = styled.div<ContainerProps>`
 `;
 
 export const Input: React.FC<InputProps> = props => {
-  const { onChange, placeholder, ...rest } = props;
+  const { onChange, placeholder, role, ...rest } = props;
   return (
     <Container {...rest}>
       {props.icon && props.icon}
-      <input placeholder={placeholder} onChange={onChange} />
+      <input
+        placeholder={placeholder}
+        onChange={onChange}
+        role={role ? role : "text"}
+      />
       {props.iconRight && props.iconRight}
     </Container>
   );
