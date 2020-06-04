@@ -42,8 +42,7 @@ const Container = styled.div<ContainerProps>`
   flex-wrap: nowrap;
   align-items: center;
   height: 40px;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding: 2px;
   border-width: 1px;
   border-style: solid;
   transition: all 200ms ease;
