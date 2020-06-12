@@ -13,11 +13,12 @@ export interface RadioContainerProps extends SpaceProps {
 
 export interface RadioProps extends RadioContainerProps {
   active?: boolean;
+  textColor?: string;
   fontSize?: number | string;
   fontWeight?: number;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   spacing?: string;
-  text?: string;
+  label?: string;
 }
 
 const RadioContainer = styled.div<RadioContainerProps>`
@@ -43,12 +44,13 @@ export const Radio: React.FC<RadioProps> = props => {
   // other props are shit like spacing and activeColor
   const {
     active,
+    textColor,
     fontSize,
     fontWeight,
     onClick,
     spacing,
     size,
-    text,
+    label,
     ...otherProps
   } = props;
 
@@ -63,8 +65,8 @@ export const Radio: React.FC<RadioProps> = props => {
         size={!size ? 18 : size}
         mr={!spacing ? "10px" : spacing}
       />
-      <Sans fontSize={fontSize} fontWeight={fontWeight}>
-        {text}
+      <Sans fontSize={fontSize} fontWeight={fontWeight} color={textColor}>
+        {label}
       </Sans>
     </RadioContainer>
   );

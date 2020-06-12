@@ -6,7 +6,7 @@
   "version": "0.1.0",
   "author": "Ross Stevens",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 3005",
     "develop": "yarn dev",
     "build": "next build",
     "start": "next start",
