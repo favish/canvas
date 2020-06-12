@@ -5,6 +5,8 @@ import {
   ColorProps,
   background,
   BackgroundProps,
+  boxShadow,
+  BoxShadowProps,
   maxHeight,
   MaxHeightProps,
   maxWidth,
@@ -26,6 +28,7 @@ import {
 export interface BoxProps
   extends ColorProps,
     BackgroundProps,
+    BoxShadowProps,
     HeightProps,
     MaxHeightProps,
     MaxWidthProps,
@@ -47,6 +50,7 @@ export const Box = styled.div<BoxProps>`
   overflow-y: ${p => p.overflowY};
   ${colorStyles};
   ${background};
+  ${boxShadow};
   ${height};
   ${maxHeight};
   ${maxWidth};
