@@ -9,6 +9,7 @@ export interface CheckboxContainerProps extends SpaceProps {
   className?: string;
   color?: string;
   size?: number;
+  key?: string | number | undefined;
 }
 
 export interface CheckboxProps extends CheckboxContainerProps {
@@ -16,9 +17,9 @@ export interface CheckboxProps extends CheckboxContainerProps {
   textColor?: string;
   fontSize?: number | string;
   fontWeight?: number;
+  label?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
   spacing?: string;
-  label?: string;
 }
 
 const CheckboxContainer = styled.div<CheckboxContainerProps>`
@@ -46,6 +47,7 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
     textColor,
     fontSize,
     fontWeight,
+    key,
     onClick,
     spacing,
     size,
@@ -57,6 +59,7 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
     <CheckboxContainer
       className={active ? "active" : undefined}
       onClick={onClick}
+      key={key}
       {...otherProps}
     >
       <Icon
