@@ -2,6 +2,7 @@ export * from "./Box";
 export * from "./BorderBox";
 export * from "./Button";
 export * from "./ButtonDropdown";
+export * from "./Checkbox";
 export * from "./Divider";
 export * from "./Flex";
 export * from "./GlobalStyles";
