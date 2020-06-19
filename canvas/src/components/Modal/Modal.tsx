@@ -192,17 +192,14 @@ export const Modal: React.FC<ModalProps> = props => {
 
   const { maskBg, zIndex, children, ...rest } = props;
 
-  if (!props.open) {
-    return null;
-  } else {
-    return (
+    return createPortal (
       <Mask maskBg={maskBg} zIndex={zIndex}>
         <ScrollIsolation ref={scrollIsolationEl as any} onClick={handleCloseClick}>
           <Content {...rest}>
             {children}
           </Content>
         </ScrollIsolation>
-      </Mask>
+      </Mask>,
+      appendEl.current
     );
-  }
 };
