@@ -39,34 +39,36 @@ import {
   width,
   WidthProps,
   zIndex,
-  ZIndexProps,
+  ZIndexProps
 } from "styled-system";
 
 const flexGrow = style({
-  prop: "flexGrow",
+  prop: "flexGrow"
 });
 
 export interface FlexProps
   extends AlignItemsProps,
-  AlignContentProps,
-  BackgroundProps,
-  BottomProps,
-  ColorProps,
-  FlexBasisProps,
-  FlexDirectionProps,
-  FlexWrapProps,
-  HeightProps,
-  JustifyContentProps,
-  MinHeightProps,
-  MinWidthProps,
-  MaxHeightProps,
-  MaxWidthProps,
-  OrderProps,
-  PositionProps,
-  SpaceProps,
-  WidthProps,
-  ZIndexProps {
+    AlignContentProps,
+    BackgroundProps,
+    BottomProps,
+    ColorProps,
+    FlexBasisProps,
+    FlexDirectionProps,
+    FlexWrapProps,
+    HeightProps,
+    JustifyContentProps,
+    MinHeightProps,
+    MinWidthProps,
+    MaxHeightProps,
+    MaxWidthProps,
+    OrderProps,
+    PositionProps,
+    SpaceProps,
+    WidthProps,
+    ZIndexProps {
   flexGrow?: number | string;
+  overflowY?: "scroll" | "auto" | "visible" | "hidden";
+  overflowX?: "scroll" | "auto" | "visible" | "hidden";
 }
 
 export const Flex = styled.div<FlexProps>`
@@ -91,4 +93,6 @@ export const Flex = styled.div<FlexProps>`
   ${space};
   ${width};
   ${zIndex};
+  overflowy: ${p => p.overflowY && p.overflowY};
+  overflowx: ${p => p.overflowX && p.overflowY};
 `;
