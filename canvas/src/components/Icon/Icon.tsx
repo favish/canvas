@@ -854,14 +854,14 @@ export const Icon: React.FC<IconProps> = props => {
         </>
       );
     }
-    if (icon === "edit2") {
+    if (icon === "edit-2") {
       return (
         <>
           <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
         </>
       );
     }
-    if (icon === "edit3") {
+    if (icon === "edit-3") {
       return (
         <>
           <path d="M12 20h9"></path>
