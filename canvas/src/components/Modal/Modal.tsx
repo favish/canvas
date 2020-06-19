@@ -1,9 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
-import { createPortal } from "react-dom"
-import { RemoveScroll } from "react-remove-scroll"
-// import { useCursor } from "use-cursor"
+import React from "react";
 import styled from "styled-components";
-
+import useOutsideClick from "../../hooks/useOutsideClick";
 import {
   borders,
   BordersProps,
@@ -51,14 +48,6 @@ interface ModalProps extends MaskProps, ContentProps {
   children?: JSX.Element;
 }
 
-const ScrollIsolation = styled(RemoveScroll as any)`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
 const Mask = styled.div<MaskProps>`
   position: fixed;
   top: 0;
@@ -72,9 +61,7 @@ const Mask = styled.div<MaskProps>`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-
   z-index: ${p => p.zIndex};
-
   ${p =>
     !p.maskBg
       ? `background-color: rgba(215,215,215,.6)`
@@ -87,11 +74,9 @@ const Content = styled.div<ContentProps>`
   padding: 40px;
   background: white;
   box-shadow: 0px 2px 24px rgba(10, 10, 10, 0.2);
-
   overflow: ${p => p.overflow};
   overflow-x: ${p => p.overflowX};
   overflow-y: ${p => p.overflowY};
-
   ${borders};
   ${height};
   ${maxHeight};
@@ -103,102 +88,23 @@ const Content = styled.div<ContentProps>`
   ${width};
 `;
 
-export const DEFAULT_MODAL_Z_INDEX = 9999
-
-const FOCUSABLE_SELECTOR = [
-  "a[href]",
-  "area[href]",
-  "input:not([disabled])",
-  "select:not([disabled])",
-  "textarea:not([disabled])",
-  "button:not([disabled])",
-  '[tabindex="0"]',
-].join(", ")
-
-export const Modal: React.FC<ModalProps> = (props, onClose = () => null) => {
-  const appendEl = useRef(document.createElement("div"))
-  const containerEl = useRef<HTMLDivElement | null>(null)
-  const scrollIsolationEl = useRef<HTMLDivElement | null>(null)
-
-  const [focusableEls, setFocusableEls] = useState<HTMLElement[]>([])
-  // const { index: focusableIndex, handlePrev, handleNext } = useCursor({
-  //   max: focusableEls.length,
-  // })
-
-  // useEffect(() => {
-  //   if (!focusableEls.length) return
-  //   focusableEls[focusableIndex].focus()
-  // }, [focusableEls, focusableIndex])
-
-  const handleCloseClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (event.target === scrollIsolationEl.current) {
-      onClose()
-    }
-  }
-
-  const handleKeydown = (event: KeyboardEvent) => {
-    switch (event.key) {
-      case "Escape":
-        // Prevent <esc> from interfering with the returned focus
-        event.preventDefault()
-        event.stopPropagation()
-
-        // Handle close
-        return onClose()
-
-      case "Tab":
-        // Lock focus within modal
-        event.preventDefault()
-        event.stopPropagation()
-
-        // Move focus up or down
-        // event.shiftKey ? handlePrev() : handleNext()
-        break
-      default:
-        break
-    }
-  }
-
-  useEffect(() => {
-    const { current } = appendEl
-
-    const focusedElBeforeOpen = document.activeElement as HTMLElement
-
-    // Append the dialog
-    document.body.appendChild(current)
-
-    // Gets the focusable elements
-    const _focusableEls = Array.from(
-      containerEl.current!.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
-    )
-    setFocusableEls(_focusableEls)
-
-    // Switches focus to the first focusable element
-    _focusableEls.length && _focusableEls[0].focus()
-
-    document.addEventListener("keydown", handleKeydown)
-
-    return () => {
-      // Remove the dialog
-      document.body.removeChild(current)
-
-      // Return the focus
-      focusedElBeforeOpen.focus()
-
-      document.removeEventListener("keydown", handleKeydown)
-    }
-  }, [])
+export const Modal: React.FC<ModalProps> = props => {
+  const openCallback = React.useCallback(() => {
+    props.setOpen(false);
+  }, [props.setOpen]);
+  const [ref] = useOutsideClick(openCallback);
 
   const { maskBg, zIndex, children, ...rest } = props;
 
-    return createPortal (
+  if (!props.open) {
+    return null;
+  } else {
+    return (
       <Mask maskBg={maskBg} zIndex={zIndex}>
-        <ScrollIsolation ref={scrollIsolationEl as any} onClick={handleCloseClick}>
-          <Content {...rest}>
-            {children}
-          </Content>
-        </ScrollIsolation>
-      </Mask>,
-      appendEl.current
+        <Content ref={ref} {...rest}>
+          {children}
+        </Content>
+      </Mask>
     );
+  }
 };
