@@ -49,7 +49,6 @@ interface ModalProps extends MaskProps, ContentProps {
   open: boolean;
   setOpen: Function;
   children?: JSX.Element;
-  onClose: Function;
 }
 
 const ScrollIsolation = styled(RemoveScroll as any)`
@@ -116,7 +115,7 @@ const FOCUSABLE_SELECTOR = [
   '[tabindex="0"]',
 ].join(", ")
 
-export const Modal: React.FC<ModalProps> = props => {
+export const Modal: React.FC<ModalProps> = (props, onClose = () => null) => {
   const appendEl = useRef(document.createElement("div"))
   const containerEl = useRef<HTMLDivElement | null>(null)
   const scrollIsolationEl = useRef<HTMLDivElement | null>(null)
@@ -133,7 +132,7 @@ export const Modal: React.FC<ModalProps> = props => {
 
   const handleCloseClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (event.target === scrollIsolationEl.current) {
-      props.onClose()
+      onClose()
     }
   }
 
@@ -145,7 +144,7 @@ export const Modal: React.FC<ModalProps> = props => {
         event.stopPropagation()
 
         // Handle close
-        return props.onClose()
+        return onClose()
 
       case "Tab":
         // Lock focus within modal
