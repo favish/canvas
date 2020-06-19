@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom"
 import { RemoveScroll } from "react-remove-scroll"
-import { useCursor } from "use-cursor"
+// import { useCursor } from "use-cursor"
 import styled from "styled-components";
 
 import {
@@ -122,14 +122,14 @@ export const Modal: React.FC<ModalProps> = props => {
   const scrollIsolationEl = useRef<HTMLDivElement | null>(null)
 
   const [focusableEls, setFocusableEls] = useState<HTMLElement[]>([])
-  const { index: focusableIndex, handlePrev, handleNext } = useCursor({
-    max: focusableEls.length,
-  })
+  // const { index: focusableIndex, handlePrev, handleNext } = useCursor({
+  //   max: focusableEls.length,
+  // })
 
-  useEffect(() => {
-    if (!focusableEls.length) return
-    focusableEls[focusableIndex].focus()
-  }, [focusableEls, focusableIndex])
+  // useEffect(() => {
+  //   if (!focusableEls.length) return
+  //   focusableEls[focusableIndex].focus()
+  // }, [focusableEls, focusableIndex])
 
   const handleCloseClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (event.target === scrollIsolationEl.current) {
@@ -153,7 +153,7 @@ export const Modal: React.FC<ModalProps> = props => {
         event.stopPropagation()
 
         // Move focus up or down
-        event.shiftKey ? handlePrev() : handleNext()
+        // event.shiftKey ? handlePrev() : handleNext()
         break
       default:
         break
