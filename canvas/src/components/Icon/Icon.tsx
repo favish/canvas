@@ -269,7 +269,7 @@ export const Icon: React.FC<IconProps> = props => {
         </>
       );
     }
-    if (icon ==== "bar-chart") {
+    if (icon === "bar-chart") {
       return (
         <>
           <line x1="12" y1="20" x2="12" y2="10"></line>
@@ -854,14 +854,14 @@ export const Icon: React.FC<IconProps> = props => {
         </>
       );
     }
-    if (icon ==== "edit-2") {
+    if (icon === "edit2") {
       return (
         <>
           <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
         </>
       );
     }
-    if (icon === "edit-3") {
+    if (icon === "edit3") {
       return (
         <>
           <path d="M12 20h9"></path>
