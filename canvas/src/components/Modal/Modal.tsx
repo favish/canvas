@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import styled from "styled-components";
+
 import useOutsideClick from "../../hooks/useOutsideClick";
 import {
   borders,
@@ -19,7 +21,7 @@ import {
   SpaceProps,
   space,
   width,
-  WidthProps
+  WidthProps,
 } from "styled-system";
 
 interface MaskProps {
@@ -61,8 +63,8 @@ const Mask = styled.div<MaskProps>`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  z-index: ${p => p.zIndex};
-  ${p =>
+  z-index: ${(p) => p.zIndex};
+  ${(p) =>
     !p.maskBg
       ? `background-color: rgba(215,215,215,.6)`
       : `background-color: ${p.maskBg}`}
@@ -74,9 +76,9 @@ const Content = styled.div<ContentProps>`
   padding: 40px;
   background: white;
   box-shadow: 0px 2px 24px rgba(10, 10, 10, 0.2);
-  overflow: ${p => p.overflow};
-  overflow-x: ${p => p.overflowX};
-  overflow-y: ${p => p.overflowY};
+  overflow: ${(p) => p.overflow};
+  overflow-x: ${(p) => p.overflowX};
+  overflow-y: ${(p) => p.overflowY};
   ${borders};
   ${height};
   ${maxHeight};
@@ -88,23 +90,47 @@ const Content = styled.div<ContentProps>`
   ${width};
 `;
 
-export const Modal: React.FC<ModalProps> = props => {
+export const Modal: React.FC<ModalProps> = (props) => {
+  const scrollIsolationEl = useRef<HTMLDivElement | null>(null);
   const openCallback = React.useCallback(() => {
     props.setOpen(false);
   }, [props.setOpen]);
   const [ref] = useOutsideClick(openCallback);
 
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (wrapperRef.current === null && typeof document !== "undefined") {
+      const div = document.createElement("div");
+      div.setAttribute("id", "modalRoot");
+      wrapperRef.current = div;
+    }
+
+    const wrapper = wrapperRef.current;
+    if (!wrapper || typeof document === "undefined") {
+      return;
+    }
+    document.body.appendChild(wrapper);
+    return () => {
+      document.body.removeChild(wrapper);
+    };
+  }, []);
+
   const { maskBg, zIndex, children, ...rest } = props;
 
-  if (!props.open) {
-    return null;
-  } else {
-    return (
-      <Mask maskBg={maskBg} zIndex={zIndex}>
-        <Content ref={ref} {...rest}>
-          {children}
-        </Content>
-      </Mask>
-    );
-  }
+  const modalEl = (
+    <>
+      {!props.open ? null : (
+        <Mask maskBg={maskBg} zIndex={zIndex}>
+          <Content ref={ref} {...rest}>
+            {children}
+          </Content>
+        </Mask>
+      )}
+    </>
+  );
+
+  return wrapperRef
+    ? wrapperRef.current && createPortal(modalEl, wrapperRef.current)
+    : null;
 };
