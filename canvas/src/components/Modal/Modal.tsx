@@ -39,6 +39,7 @@ interface ContentProps
     ShadowProps,
     SpaceProps,
     WidthProps {
+  closeOutsideClick?: boolean;
   overflowY?: "auto" | "hidden" | "scroll" | "visible";
   overflowX?: "auto" | "hidden" | "scroll" | "visible";
   overflow?: "auto" | "hidden" | "scroll" | "visible";
@@ -91,13 +92,12 @@ const Content = styled.div<ContentProps>`
 `;
 
 export const Modal: React.FC<ModalProps> = (props) => {
-  const scrollIsolationEl = useRef<HTMLDivElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   const openCallback = React.useCallback(() => {
     props.setOpen(false);
   }, [props.setOpen]);
   const [ref] = useOutsideClick(openCallback);
 
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
   if (wrapperRef.current === null && typeof document !== "undefined") {
     const div = document.createElement("div");
     div.setAttribute("id", "modalRoot");
@@ -115,13 +115,13 @@ export const Modal: React.FC<ModalProps> = (props) => {
     };
   }, []);
 
-  const { maskBg, zIndex, children, ...rest } = props;
+  const { closeOutsideClick, maskBg, zIndex, children, ...rest } = props;
 
   const modalEl = (
     <>
       {!props.open ? null : (
         <Mask maskBg={maskBg} zIndex={zIndex}>
-          <Content ref={ref} {...rest}>
+          <Content ref={!closeOutsideClick ? null : ref} {...rest}>
             {children}
           </Content>
         </Mask>
