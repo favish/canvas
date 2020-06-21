@@ -98,14 +98,13 @@ export const Modal: React.FC<ModalProps> = (props) => {
   const [ref] = useOutsideClick(openCallback);
 
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  if (wrapperRef.current === null && typeof document !== "undefined") {
+    const div = document.createElement("div");
+    div.setAttribute("id", "modalRoot");
+    wrapperRef.current = div;
+  }
 
   useEffect(() => {
-    if (wrapperRef.current === null && typeof document !== "undefined") {
-      const div = document.createElement("div");
-      div.setAttribute("id", "modalRoot");
-      wrapperRef.current = div;
-    }
-
     const wrapper = wrapperRef.current;
     if (!wrapper || typeof document === "undefined") {
       return;
