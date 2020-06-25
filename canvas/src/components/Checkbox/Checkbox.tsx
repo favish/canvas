@@ -47,7 +47,6 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
     textColor,
     fontSize,
     fontWeight,
-    key,
     onClick,
     spacing,
     size,
@@ -59,7 +58,7 @@ export const Checkbox: React.FC<CheckboxProps> = props => {
     <CheckboxContainer
       className={active ? "active" : undefined}
       onClick={onClick}
-      key={key}
+      key={otherProps.key}
       {...otherProps}
     >
       <Icon
