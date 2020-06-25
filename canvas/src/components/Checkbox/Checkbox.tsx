@@ -9,7 +9,7 @@ export interface CheckboxContainerProps extends SpaceProps {
   className?: string;
   color?: string;
   size?: number;
-  key?: string | number | undefined;
+  key?: string | number;
 }
 
 export interface CheckboxProps extends CheckboxContainerProps {
