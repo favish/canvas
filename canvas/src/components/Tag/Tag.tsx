@@ -22,6 +22,7 @@ export interface TagContainerProps
   hoverColor?: string;
   hoverBorder?: string;
   backgroundColor?: string;
+  key?: string | number;
 }
 
 export interface TagProps extends TagContainerProps {
@@ -84,6 +85,7 @@ export const Tag: React.FC<TagProps> = ({
     <TagContainer
       active={active}
       color={!color ? "#474747" : color}
+      key={otherProps.key}
       {...otherProps}
       onClick={onClick}
     >
