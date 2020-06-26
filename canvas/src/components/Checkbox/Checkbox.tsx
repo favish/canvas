@@ -28,19 +28,19 @@ const CheckboxContainer = styled.div<CheckboxContainerProps>`
   cursor: pointer;
   ${space};
   svg {
-    stroke: ${p => (p.color ? p.color : "rgba(20,20,20,.6)")};
+    stroke: ${(p) => (p.color ? p.color : "rgba(20,20,20,.6)")};
     transition: all 180ms ease-in-out;
     cursor: pointer;
     &:hover {
-      stroke: ${p => (p.activeColor ? p.activeColor : "rgba(20,20,20,1)")};
+      stroke: ${(p) => (p.activeColor ? p.activeColor : "rgba(20,20,20,1)")};
     }
   }
   &.active svg {
-    stroke: ${p => (p.activeColor ? p.activeColor : "rgba(20,20,20,1)")};
+    stroke: ${(p) => (p.activeColor ? p.activeColor : "rgba(20,20,20,1)")};
   }
 `;
 
-export const Checkbox: React.FC<CheckboxProps> = props => {
+export const Checkbox: React.FC<CheckboxProps> = (props) => {
   // other props are shit like spacing and activeColor
   const {
     active,
