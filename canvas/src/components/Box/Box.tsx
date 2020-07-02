@@ -37,6 +37,7 @@ export interface BoxProps
     PositionProps,
     WidthProps,
     SpaceProps {
+  cursor?: "disabled" | "pointer" | "default" | "auto";
   display?: "block" | "inline-block";
   overflowY?: "auto" | "hidden" | "scroll" | "visible";
   overflowX?: "auto" | "hidden" | "scroll" | "visible";
@@ -48,6 +49,7 @@ export const Box = styled.div<BoxProps>`
   overflow: ${p => p.overflow};
   overflow-x: ${p => p.overflowX};
   overflow-y: ${p => p.overflowY};
+  cursor: ${p => (p.cursor ? p.cursor : "auto")};
   ${colorStyles};
   ${background};
   ${boxShadow};
