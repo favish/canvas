@@ -1,8 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import { space, SpaceProps } from "styled-system";
+import {
+  height,
+  HeightProps,
+  position,
+  PositionProps,
+  space,
+  SpaceProps,
+  width,
+  WidthProps
+} from "styled-system";
 
-export interface GridProps {
+export interface GridProps
+  extends HeightProps,
+    PositionProps,
+    SpaceProps,
+    WidthProps {
   preset?: 1 | 2 | 3 | 4 | 5;
   rowGap?: number;
   columnGap?: number;
@@ -11,6 +24,9 @@ export interface GridProps {
 export const Grid = styled.div<GridProps>`
   display: grid;
   ${space}
+  ${position};
+  ${height};
+  ${width};
 
   ${p =>
     p.preset &&
