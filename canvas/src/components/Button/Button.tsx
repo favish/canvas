@@ -166,10 +166,6 @@ export const Button: React.FC<ButtonProps> = props => {
     );
   }
 
-  if (props.variant === "secondary") {
-    return <ButtonStyle type={!role ? "button" : role} {...rest} />;
-  }
-
   return (
     <>
       {!loading ? (
@@ -186,3 +182,5 @@ export const Button: React.FC<ButtonProps> = props => {
     </>
   );
 };
+
+Button.displayName = "Button";

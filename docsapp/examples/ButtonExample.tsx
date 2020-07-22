@@ -204,6 +204,8 @@ const ButtonExample: React.FC<any> = () => {
           role="button"
           text="Primary"
           variant="disabled"
+          minWidth={500}
+          justifyContent="flex-start"
           loading={submitting}
           onClick={() => setSubmitting(true)}
         />
