@@ -40,6 +40,7 @@ export interface ButtonStyleProps
   borderWidth?: number;
   color?: string;
   hoverBg?: string;
+  justifyContent?: "center" | "flex-end" | "flex-start";
   size?: "default" | "small";
   variant?: "primary" | "secondary" | "disabled";
   width?: number;
@@ -70,7 +71,7 @@ cursor: pointer;
 transition: all 180ms ease;
 
 display: flex;
-justify-content: center;
+justify-content: ${p => (p.justifyContent ? p.justifyContent : "center")};
 align-items: center;
 
 min-width: 100px;
@@ -156,6 +157,19 @@ export const Button: React.FC<ButtonProps> = props => {
   } = props;
 
   const loaderNull = !loader ? <LoadingSpinner color={props.color} /> : loader;
+
+  if (props.variant === "disabled") {
+    return (
+      <ButtonStyle onClick={() => {}} variant="disabled" {...rest}>
+        {!loading ? text : loaderNull}
+      </ButtonStyle>
+    );
+  }
+
+  if (props.variant === "secondary") {
+    return <ButtonStyle type={!role ? "button" : role} {...rest} />;
+  }
+
   return (
     <>
       {!loading ? (
