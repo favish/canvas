@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 export interface LoadingSpinnerProps {
   color?: string;
   size?: string;
-  strokeWidth?: number;
+  strokeWidth?: string;
 }
 
 const spin = keyframes`
@@ -20,8 +20,8 @@ const Spinner = styled.div<LoadingSpinnerProps>`
   align-items: center;
 
   .loader {
-    height: ${p => (p.size ? p.size : "24px")};
-    width: ${p => (p.size ? p.size : "24px")};
+    height: 100%;
+    width: 100%;
     border: ${p => (p.strokeWidth ? p.strokeWidth : "2px")} solid
       rgba(0, 174, 239, 0.2);
     border-top-color: ${p => (p.color ? p.color : "white")};
