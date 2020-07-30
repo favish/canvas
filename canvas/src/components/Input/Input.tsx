@@ -72,12 +72,12 @@ const Container = styled.div<ContainerProps>`
   }
 
   &:focus-within {
-      border: ${p =>
-        p.activeBorder ? p.activeBorder : "solid 1px rgba(20, 240, 160, 0.5);"}
-      box-shadow: ${p =>
-        p.activeShadow
-          ? p.activeShadow
-          : "0px 0px 0px 2px rgba(20, 240, 160, 0.4)"}
+    border: ${p =>
+      p.activeBorder ? p.activeBorder : "solid 1px rgba(20, 240, 160, 0.5)"};
+    box-shadow: ${p =>
+      p.activeShadow
+        ? p.activeShadow
+        : "0px 0px 0px 2px rgba(20, 240, 160, 0.4)"};
   }
 `;
 
