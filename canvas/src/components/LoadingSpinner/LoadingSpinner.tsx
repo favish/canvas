@@ -21,7 +21,7 @@ const Spinner = styled.div<LoadingSpinnerProps>`
 
   .loader {
     height: 100%;
-    width: 100%;
+    min-width: 100%;
     border: ${p => (p.strokeWidth ? p.strokeWidth : "2px")} solid
       rgba(0, 174, 239, 0.2);
     border-top-color: ${p => (p.color ? p.color : "white")};
