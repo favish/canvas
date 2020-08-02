@@ -62,6 +62,7 @@ const MainButton = styled.button<ButtonMainProps>`
   border-bottom-left-radius: ${p => (p.borderRadius ? p.borderRadius : "4px")};
 
   ${colorStyles};
+  ${height};
 
   ${p =>
     (!p.variant || p.variant === "primary") &&
@@ -70,6 +71,7 @@ const MainButton = styled.button<ButtonMainProps>`
       color: white;
       border-style: solid;
       border-width: ${p.borderWidth ? p.borderWidth : "1px"};
+      border-right-color: transparent;
       border-top-color: ${p.borderColor ? p.borderColor : "transparent"};
       border-left-color: ${p.borderColor ? p.borderColor : "transparent"};
       border-bottom-color: ${p.borderColor ? p.borderColor : "transparent"};
@@ -82,6 +84,7 @@ const MainButton = styled.button<ButtonMainProps>`
       color: rgb(50, 50, 50);
       border-style: solid;
       border-width: ${props.borderWidth ? props.borderWidth : "1px"};
+      border-right-color: transparent;
       border-top-color: ${
         props.borderColor ? props.borderColor : "rgb(210,210,210)"
       };
@@ -99,12 +102,12 @@ const MainButton = styled.button<ButtonMainProps>`
       background-color: white;
       color: rgb(50, 50, 50);
       border-width: ${p.borderWidth ? p.borderWidth : "1px"};
+      border-right-color: transparent;
       border-top-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-left-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-bottom-color: ${p.borderColor ? p.borderColor : "#eb4559"};
     `}
 
-  ${height};
 `;
 
 // tesst
@@ -119,6 +122,7 @@ const DownArrow = styled.button<ButtonMainProps>`
     p.borderRadius ? `${p.borderRadius}px` : "4px"};
 
   ${colorStyles};
+  ${height};
 
   ${p =>
     (!p.variant || p.variant === "primary") &&
@@ -127,6 +131,7 @@ const DownArrow = styled.button<ButtonMainProps>`
       color: white;
       border-style: solid;
       border-width: ${p.borderWidth ? p.borderWidth : "1px"};
+      border-left-color: transparent;
       border-top-color: ${p.borderColor ? p.borderColor : "transparent"};
       border-right-color: ${p.borderColor ? p.borderColor : "transparent"};
       border-bottom-color: ${p.borderColor ? p.borderColor : "transparent"};
@@ -139,6 +144,7 @@ const DownArrow = styled.button<ButtonMainProps>`
       color: rgb(50, 50, 50);
       border-style: solid;
       border-width: ${p.borderWidth ? p.borderWidth : "1px"};
+      border-left-color: transparent;
       border-top-color: ${p.borderColor ? p.borderColor : "rgb(210,210,210)"};
       border-right-color: ${p.borderColor ? p.borderColor : "rgb(210,210,210)"};
       border-bottom-color: ${
@@ -152,13 +158,13 @@ const DownArrow = styled.button<ButtonMainProps>`
       background-color: white;
       color: rgb(50, 50, 50);
       border-style: solid;
+      border-left-color: transparent;
       border-width: ${p.borderWidth ? p.borderWidth : "1px"};
       border-top-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-right-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-bottom-color: ${p.borderColor ? p.borderColor : "#eb4559"};
     `}
 
-  ${height};
 `;
 
 const DropBackground = styled.div`
