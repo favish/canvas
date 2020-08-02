@@ -10,15 +10,19 @@ import {
   // space,
   SpaceProps,
   borders,
+  BorderProps
 } from "styled-system";
 import { Icon } from "../Icon";
 
-export interface ButtonMainProps extends ColorStyleProps, SpaceProps {
+export interface ButtonMainProps
+  extends BorderProps,
+    ColorStyleProps,
+    SpaceProps {
   bg?: string;
   backgroundColor?: string;
   borderColor?: string;
-  borderRadius?: number;
-  borderWidth?: number;
+  borderRadius?: string;
+  borderWidth?: string;
   color?: string;
   textAlign?: "left" | "center" | "right";
   variant?: "primary" | "secondary" | "error";
@@ -46,34 +50,32 @@ const MainButton = styled.button<ButtonMainProps>`
   outline: 0;
   border-right: 0;
   text-transform: capitalize;
-  text-align: ${(props) => (props.textAlign ? props.textAlign : "left")};
+  text-align: ${props => (props.textAlign ? props.textAlign : "left")};
 
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  border-top-left-radius: ${(p) =>
-    p.borderRadius ? `${p.borderRadius}px` : "4px"};
-  border-bottom-left-radius: ${(p) =>
-    p.borderRadius ? `${p.borderRadius}px` : "4px"};
+  border-top-left-radius: ${p => (p.borderRadius ? p.borderRadius : "4px")};
+  border-bottom-left-radius: ${p => (p.borderRadius ? p.borderRadius : "4px")};
 
   ${colorStyles};
 
-  ${(p) =>
+  ${p =>
     (!p.variant || p.variant === "primary") &&
     `
       background-color: black;
       color: white;
-      border-width: ${p.borderWidth ? `${p.borderWidth}px` : "1px"};
+      border-width: ${p.borderWidth ? p.borderWidth : "1px"};
       border-top-color: ${p.borderColor ? p.borderColor : "transparent"};
       border-left-color: ${p.borderColor ? p.borderColor : "transparent"};
       border-bottom-color: ${p.borderColor ? p.borderColor : "transparent"};
     `}
 
-  ${(props) =>
+  ${props =>
     props.variant === "secondary" &&
     `
       background-color: white;
       color: rgb(50, 50, 50);
-      border-width: ${props.borderWidth ? `${props.borderWidth}px` : "1px"};
+      border-width: ${props.borderWidth ? props.borderWidth : "1px"};
       border-top-color: ${
         props.borderColor ? props.borderColor : "rgba(210,210,210)"
       };
@@ -85,12 +87,12 @@ const MainButton = styled.button<ButtonMainProps>`
       };
     `}
 
-  ${(p) =>
+  ${p =>
     p.variant === "error" &&
     `
       background-color: white;
       color: rgb(50, 50, 50);
-      border-width: ${p.borderWidth ? `${p.borderWidth}px` : "1px"};
+      border-width: ${p.borderWidth ? p.borderWidth : "1px"};
       border-top-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-left-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-bottom-color: ${p.borderColor ? p.borderColor : "#eb4559"};
@@ -101,30 +103,30 @@ const DownArrow = styled.button<ButtonMainProps>`
   width: 40px;
   border-left: 0;
 
-  border-top-right-radius: ${(p) =>
+  border-top-right-radius: ${p =>
     p.borderRadius ? `${p.borderRadius}px` : "4px"};
-  border-bottom-right-radius: ${(p) =>
+  border-bottom-right-radius: ${p =>
     p.borderRadius ? `${p.borderRadius}px` : "4px"};
 
   ${colorStyles};
 
-  ${(p) =>
+  ${p =>
     (!p.variant || p.variant === "primary") &&
     `
       background-color: black;
       color: white;
-      border-width: ${p.borderWidth ? `${p.borderWidth}px` : "1px"};
+      border-width: ${p.borderWidth ? p.borderWidth : "1px"};
       border-top-color: ${p.borderColor ? p.borderColor : "transparent"};
       border-right-color: ${p.borderColor ? p.borderColor : "transparent"};
       border-bottom-color: ${p.borderColor ? p.borderColor : "transparent"};
     `}
     
-  ${(p) =>
+  ${p =>
     p.variant === "secondary" &&
     `
       background-color: white;
       color: rgb(50, 50, 50);
-      border-width: ${p.borderWidth ? `${p.borderWidth}px` : 1};
+      border-width: ${p.borderWidth ? p.borderWidth : "1px"};
       border-top-color: ${p.borderColor ? p.borderColor : "rgba(210,210,210)"};
       border-right-color: ${
         p.borderColor ? p.borderColor : "rgba(210,210,210)"
@@ -134,12 +136,12 @@ const DownArrow = styled.button<ButtonMainProps>`
       };
     `}
     
-  ${(p) =>
+  ${p =>
     p.variant === "error" &&
     `
       background-color: white;
       color: rgb(50, 50, 50);
-      border-width: ${p.borderWidth ? `${p.borderWidth}px` : 1};
+      border-width: ${p.borderWidth ? p.borderWidth : "1px"};
       border-top-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-right-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-bottom-color: ${p.borderColor ? p.borderColor : "#eb4559"};
@@ -154,7 +156,7 @@ const DropBackground = styled.div`
   border-radius: 5px;
 `;
 
-export const ButtonDropdown: React.FC<ButtonDropdownProps> = (props) => {
+export const ButtonDropdown: React.FC<ButtonDropdownProps> = props => {
   const [showDropdown, setShowDropdown] = React.useState<boolean>(false);
   const openCallback = React.useCallback(() => {
     setShowDropdown(false);
