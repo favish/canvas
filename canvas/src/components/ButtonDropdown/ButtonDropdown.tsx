@@ -7,6 +7,8 @@ import useOutsideClick from "./../../hooks/useOutsideClick";
 import {
   color as colorStyles,
   ColorStyleProps,
+  height,
+  HeightProps,
   // space,
   SpaceProps,
   borders,
@@ -17,6 +19,7 @@ import { Icon } from "../Icon";
 export interface ButtonMainProps
   extends BorderProps,
     ColorStyleProps,
+    HeightProps,
     SpaceProps {
   bg?: string;
   backgroundColor?: string;
@@ -48,6 +51,7 @@ const MainButton = styled.button<ButtonMainProps>`
   font-weight: 500;
   color: white;
   outline: 0;
+  border: 0;
   border-right: 0;
   text-transform: capitalize;
   text-align: ${props => (props.textAlign ? props.textAlign : "left")};
@@ -64,6 +68,7 @@ const MainButton = styled.button<ButtonMainProps>`
     `
       background-color: black;
       color: white;
+      border-style: solid;
       border-width: ${p.borderWidth ? p.borderWidth : "1px"};
       border-top-color: ${p.borderColor ? p.borderColor : "transparent"};
       border-left-color: ${p.borderColor ? p.borderColor : "transparent"};
@@ -75,15 +80,16 @@ const MainButton = styled.button<ButtonMainProps>`
     `
       background-color: white;
       color: rgb(50, 50, 50);
+      border-style: solid;
       border-width: ${props.borderWidth ? props.borderWidth : "1px"};
       border-top-color: ${
-        props.borderColor ? props.borderColor : "rgba(210,210,210)"
+        props.borderColor ? props.borderColor : "rgb(210,210,210)"
       };
       border-left-color: ${
-        props.borderColor ? props.borderColor : "rgba(210,210,210)"
+        props.borderColor ? props.borderColor : "rgb(210,210,210)"
       };
       border-bottom-color: ${
-        props.borderColor ? props.borderColor : "rgba(210,210,210)"
+        props.borderColor ? props.borderColor : "rgb(210,210,210)"
       };
     `}
 
@@ -97,11 +103,14 @@ const MainButton = styled.button<ButtonMainProps>`
       border-left-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-bottom-color: ${p.borderColor ? p.borderColor : "#eb4559"};
     `}
+
+  ${height};
 `;
 
 const DownArrow = styled.button<ButtonMainProps>`
   width: 40px;
   border-left: 0;
+  border: 0;
 
   border-top-right-radius: ${p =>
     p.borderRadius ? `${p.borderRadius}px` : "4px"};
@@ -115,6 +124,7 @@ const DownArrow = styled.button<ButtonMainProps>`
     `
       background-color: black;
       color: white;
+      border-style: solid;
       border-width: ${p.borderWidth ? p.borderWidth : "1px"};
       border-top-color: ${p.borderColor ? p.borderColor : "transparent"};
       border-right-color: ${p.borderColor ? p.borderColor : "transparent"};
@@ -124,15 +134,14 @@ const DownArrow = styled.button<ButtonMainProps>`
   ${p =>
     p.variant === "secondary" &&
     `
-      background-color: white;
+      background-color: transparent;
       color: rgb(50, 50, 50);
+      border-style: solid;
       border-width: ${p.borderWidth ? p.borderWidth : "1px"};
-      border-top-color: ${p.borderColor ? p.borderColor : "rgba(210,210,210)"};
-      border-right-color: ${
-        p.borderColor ? p.borderColor : "rgba(210,210,210)"
-      };
+      border-top-color: ${p.borderColor ? p.borderColor : "rgb(210,210,210)"};
+      border-right-color: ${p.borderColor ? p.borderColor : "rgb(210,210,210)"};
       border-bottom-color: ${
-        p.borderColor ? p.borderColor : "rgba(210,210,210)"
+        p.borderColor ? p.borderColor : "rgb(210,210,210)"
       };
     `}
     
@@ -141,11 +150,14 @@ const DownArrow = styled.button<ButtonMainProps>`
     `
       background-color: white;
       color: rgb(50, 50, 50);
+      border-style: solid;
       border-width: ${p.borderWidth ? p.borderWidth : "1px"};
       border-top-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-right-color: ${p.borderColor ? p.borderColor : "#eb4559"};
       border-bottom-color: ${p.borderColor ? p.borderColor : "#eb4559"};
     `}
+
+  ${height};
 `;
 
 const DropBackground = styled.div`
