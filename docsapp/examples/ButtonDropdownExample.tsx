@@ -6,6 +6,8 @@ import useOutsideClick from "./../hooks/useOutsideClick";
 import {
   color as colorStyles,
   ColorStyleProps,
+  height,
+  HeightProps,
   // space,
   SpaceProps,
   borders,
@@ -28,7 +30,8 @@ export interface ButtonMainProps
 
 export interface ButtonDropdownProps
   extends ButtonMainProps,
-    ColorStyleProps,
+  ColorStyleProps,
+  HeightProps,
     SpaceProps {
   color?: string;
   onChange?: Function;
@@ -36,7 +39,7 @@ export interface ButtonDropdownProps
   text: string | number;
 }
 
-const MainButton = styled.button<ButtonMainProps>`
+const MainButton = styled.button<ButtonMainProps | any>`
   height: 40px;
   width: calc(100% - 40px);
   padding-left: 10px;
@@ -57,6 +60,7 @@ const MainButton = styled.button<ButtonMainProps>`
   border-bottom-left-radius: ${p => (p.borderRadius ? p.borderRadius : "4px")};
 
   ${colorStyles};
+  ${height};
 
   ${p =>
     (!p.variant || p.variant === "primary") &&
@@ -95,7 +99,7 @@ const MainButton = styled.button<ButtonMainProps>`
     `}
 `;
 
-const DownArrow = styled.button<ButtonMainProps>`
+const DownArrow = styled.button<ButtonMainProps | any>`
   width: 40px;
   border-left: 0;
 
@@ -105,6 +109,7 @@ const DownArrow = styled.button<ButtonMainProps>`
     p.borderRadius ? p.borderRadius : "4px"};
 
   ${colorStyles};
+  ${height};
 
   ${p =>
     (!p.variant || p.variant === "primary") &&
@@ -176,6 +181,7 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> = props => {
           borderWidth={props.borderWidth}
           textAlign={props.textAlign}
           variant={props.variant}
+          {...otherProps}
         >
           {props.text}
         </MainButton>
@@ -187,6 +193,7 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> = props => {
           borderColor={props.borderColor}
           borderWidth={props.borderWidth}
           variant={props.variant}
+          {...otherProps}
         >
           <Icon icon="chevron-down" color={props.color} />
         </DownArrow>
@@ -207,6 +214,7 @@ const ButtonDropdownExample: React.FC<any> = () => {
         textAlign="center"
         variant="secondary"
         color="white"
+        height="100px"
       >
         <MenuItem
           text="Popularity"

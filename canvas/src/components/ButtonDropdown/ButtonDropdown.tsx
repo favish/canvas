@@ -41,7 +41,7 @@ export interface ButtonDropdownProps
   text: string | number;
 }
 
-const MainButton = styled.button<ButtonMainProps>`
+const MainButton = styled.button<ButtonMainProps | any>`
   height: 40px;
   width: calc(100% - 40px);
   padding-left: 10px;
@@ -111,7 +111,7 @@ const MainButton = styled.button<ButtonMainProps>`
 `;
 
 // tesst
-const DownArrow = styled.button<ButtonMainProps>`
+const DownArrow = styled.button<ButtonMainProps | any>`
   width: 40px;
   border-left: 0;
   border: 0;
@@ -199,6 +199,7 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> = props => {
           borderWidth={props.borderWidth}
           textAlign={props.textAlign}
           variant={props.variant}
+          {...otherProps}
         >
           {props.text}
         </MainButton>
@@ -210,6 +211,7 @@ export const ButtonDropdown: React.FC<ButtonDropdownProps> = props => {
           borderColor={props.borderColor}
           borderWidth={props.borderWidth}
           variant={props.variant}
+          {...otherProps}
         >
           <Icon icon="chevron-down" color={props.color} />
         </DownArrow>
