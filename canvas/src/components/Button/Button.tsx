@@ -143,7 +143,7 @@ ${typography};
 ${width};
 `;
 
-export const Button: React.FC<ButtonProps> = props => {
+export const Button: React.FC<ButtonProps | any> = props => {
   const {
     disabled,
     icon,
