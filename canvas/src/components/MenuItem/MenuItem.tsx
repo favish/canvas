@@ -16,7 +16,7 @@ export interface MenuItemProps
   text: string;
 }
 
-const Container = styled.div<ContainerProps>`
+const Container = styled.div<ContainerProps | any>`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -29,12 +29,12 @@ const Container = styled.div<ContainerProps>`
 
   &:hover {
     opacity: 1;
-    background-color: ${(props) =>
+    background-color: ${props =>
       props.hoverBg ? props.hoverBg : "transparent"};
   }
 `;
 
-export const MenuItem: React.FC<MenuItemProps> = (props) => {
+export const MenuItem: React.FC<MenuItemProps | any> = props => {
   const {
     fontFamily,
     fontSize,
