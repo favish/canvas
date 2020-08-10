@@ -57,7 +57,7 @@ export interface ButtonProps extends ButtonStyleProps {
   text: string;
 }
 
-const ButtonStyle = styled.button<ButtonStyleProps>`
+const ButtonStyle = styled.button<ButtonStyleProps | any>`
 outline: 0;
 padding-left: 20px;
 padding-right: 20px;
