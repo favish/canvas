@@ -43,6 +43,7 @@ export interface BoxProps
   overflowY?: "auto" | "hidden" | "scroll" | "visible";
   overflowX?: "auto" | "hidden" | "scroll" | "visible";
   overflow?: "auto" | "hidden" | "scroll" | "visible";
+  key?: string | number;
 }
 
 export const Box = styled.div<BoxProps>`

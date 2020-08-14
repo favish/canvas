@@ -69,6 +69,7 @@ export interface FlexProps
   flexGrow?: number | string;
   overflowY?: "scroll" | "auto" | "visible" | "hidden";
   overflowX?: "scroll" | "auto" | "visible" | "hidden";
+  key?: string | number;
 }
 
 export const Flex = styled.div<FlexProps>`

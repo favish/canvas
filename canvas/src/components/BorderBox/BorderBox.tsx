@@ -26,23 +26,25 @@ import {
   WidthProps,
   zIndex,
   ZIndexProps,
-  borders,
+  borders
 } from "styled-system";
 
 export interface BorderBoxProps
   extends BackgroundProps,
-  BordersProps,
-  BottomProps,
-  ColorStyleProps,
-  DisplayProps,
-  HeightProps,
-  MaxHeightProps,
-  MaxWidthProps,
-  OrderProps,
-  PositionProps,
-  SpaceProps,
-  WidthProps,
-  ZIndexProps { }
+    BordersProps,
+    BottomProps,
+    ColorStyleProps,
+    DisplayProps,
+    HeightProps,
+    MaxHeightProps,
+    MaxWidthProps,
+    OrderProps,
+    PositionProps,
+    SpaceProps,
+    WidthProps,
+    ZIndexProps {
+  key?: string | number;
+}
 
 export const BorderBox = styled.div<BorderBoxProps>`
   border-style: solid;
