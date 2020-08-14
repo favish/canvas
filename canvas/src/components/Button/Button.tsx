@@ -160,7 +160,13 @@ export const Button: React.FC<ButtonProps | any> = props => {
 
   if (props.variant === "disabled") {
     return (
-      <ButtonStyle variant="disabled" {...rest}>
+      <ButtonStyle
+        onClick={e => {
+          e.preventDefault();
+        }}
+        variant="disabled"
+        {...rest}
+      >
         {!loading ? text : loaderNull}
       </ButtonStyle>
     );
