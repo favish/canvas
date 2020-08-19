@@ -29,14 +29,14 @@ export const ButtonDropdown = (props: ButtonDropdownProps) => {
     setShowDropdown(!showDropdown);
   };
 
-  const { children, text, width, ...otherProps } = props;
+  const { children, text, width, minWidth, maxWidth, ...otherProps } = props;
 
   return (
     <Box
       ref={ref}
-      width={props.width}
-      maxWidth={props.maxWidth}
-      minWidth={props.minWidth}
+      width={width}
+      maxWidth={maxWidth}
+      minWidth={minWidth}
       position="relative"
     >
       <Button
