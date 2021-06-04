@@ -72,7 +72,7 @@ export const Radio: React.FC<RadioProps> = (props) => {
   return (
     <RadioContainer
       className={active ? "active" : className}
-      onClick={onClick}
+      onClick={!disabled ? onClick : () => {}}
       disabled={disabled}
       {...otherProps}
     >
