@@ -9,6 +9,7 @@ export interface RadioContainerProps extends SpaceProps {
   className?: string;
   color?: string;
   size?: number;
+  disabled?: boolean;
 }
 
 export interface RadioProps extends RadioContainerProps {
@@ -27,23 +28,37 @@ const RadioContainer = styled.div<RadioContainerProps>`
   cursor: pointer;
   ${space};
   svg {
-    stroke: ${p => (p.color ? p.color : "rgba(20,20,20,.6)")};
+    stroke: ${(p) => (p.color ? p.color : "rgba(20,20,20,.6)")};
     transition: all 180ms ease-in-out;
     cursor: pointer;
 
     &:hover {
-      stroke: ${p => (p.activeColor ? p.activeColor : "rgba(20,20,20,1)")};
+      stroke: ${(p) => (p.activeColor ? p.activeColor : "rgba(20,20,20,1)")};
     }
   }
-  &.active svg {
-    stroke: ${p => (p.activeColor ? p.activeColor : "rgba(20,20,20,1)")};
+  & .active svg {
+    stroke: ${(p) => (p.activeColor ? p.activeColor : "rgba(20,20,20,1)")};
   }
+
+  ${(props) =>
+    props.disabled &&
+    `
+  cursor: not-allowed;
+  color: rgba(20,20,20,.4);
+
+  svg {
+    stroke: rgba(20,20,20,.4);
+    transition: all 180ms ease-in-out;
+    cursor: not-allowed;
+  `}
 `;
 
-export const Radio: React.FC<RadioProps> = props => {
+export const Radio: React.FC<RadioProps> = (props) => {
   // other props are shit like spacing and activeColor
   const {
     active,
+    disabled,
+    className,
     textColor,
     fontSize,
     fontWeight,
@@ -56,8 +71,9 @@ export const Radio: React.FC<RadioProps> = props => {
 
   return (
     <RadioContainer
-      className={active ? "active" : undefined}
+      className={active ? "active" : className}
       onClick={onClick}
+      disabled={disabled}
       {...otherProps}
     >
       <Icon
