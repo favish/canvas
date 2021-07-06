@@ -21,7 +21,7 @@ import {
   typography,
   TypographyProps,
   width,
-  WidthProps
+  WidthProps,
 } from "styled-system";
 import { LoadingSpinner } from "../LoadingSpinner";
 
@@ -71,7 +71,7 @@ cursor: pointer;
 transition: all 180ms ease;
 
 display: flex;
-justify-content: ${p => (p.justifyContent ? p.justifyContent : "center")};
+justify-content: ${(p) => (p.justifyContent ? p.justifyContent : "center")};
 align-items: center;
 
 min-width: 100px;
@@ -82,7 +82,7 @@ min-width: 100px;
   background - color: gray;
 }
 
-${p =>
+${(p) =>
   (p.variant === "primary" || !p.variant) &&
   `
       height: 40px;
@@ -91,11 +91,11 @@ ${p =>
       ${minWidth};
 
       &:hover {
-        opacity: ${p => (p.hoverBg ? p.hoverBg : "rgb(10,10,10)")};
+        opacity: ${(p) => (p.hoverBg ? p.hoverBg : "rgb(10,10,10)")};
       }
     `}
 
-${props =>
+${(props) =>
   props.variant === "disabled" &&
   `
       height: 40px;
@@ -105,7 +105,7 @@ ${props =>
       ${minWidth};
     `}
 
-${props =>
+${(props) =>
   props.variant === "secondary" &&
   `
       height: 40px;
@@ -122,7 +122,7 @@ ${props =>
       }
     `}
 
-${p =>
+${(p) =>
   p.size === "small" &&
   `
       font-size: 12px;
@@ -143,7 +143,7 @@ ${typography};
 ${width};
 `;
 
-export const Button: React.FC<ButtonProps | any> = props => {
+export const Button: React.FC<ButtonProps | any> = (props) => {
   const {
     disabled,
     icon,
@@ -161,13 +161,15 @@ export const Button: React.FC<ButtonProps | any> = props => {
   if (props.variant === "disabled") {
     return (
       <ButtonStyle
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault();
         }}
         variant="disabled"
         {...rest}
       >
+        {icon && icon}
         {!loading ? text : loaderNull}
+        {iconRight && iconRight}
       </ButtonStyle>
     );
   }
