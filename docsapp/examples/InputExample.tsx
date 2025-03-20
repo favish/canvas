@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Icon, Input, LoadingDots } from '@rsbear/canvas'
+import { Box, Button, Icon, Input, LoadingDots } from '@favish/canvas'
 
 const InputExample: React.FC<any> = () => {
   const [value, setValue] = React.useState<string | null>('')

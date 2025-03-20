@@ -1,12 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
-import { Sans, BorderBox } from '@rsbear/canvas'
+import { Sans, BorderBox } from '@favish/canvas'
 
 const Navigation: React.FC<{}> = () => {
   return (
     <BorderBox borderRightWidth={1} borderColor="pink" pr={40}>
       <Sans fontSize={18} fontWeight={600} color="black">
-        @rsbear/canvas
+        @favish/canvas
       </Sans>
       <Sans fontSize={14} fontWeight={600} textTransform="uppercase" mt={20}>
         Wrappers

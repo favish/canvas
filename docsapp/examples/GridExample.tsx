@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, BorderBox, Grid } from '@rsbear/canvas'
+import { Flex, BorderBox, Grid } from '@favish/canvas'
 
 const GridExample: React.FC<any> = () => {
   const test = ['purple', 'pink', 'lightsalmon', 'lightskyblue', 'indianred']

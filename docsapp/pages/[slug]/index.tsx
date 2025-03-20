@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 
 import Layout from '../../components/Layout'
 import ExampleRouter from '../../examples/ExampleRouter'
-import { Box } from '@rsbear/canvas'
+import { Box } from '@favish/canvas'
 import styled from 'styled-components'
 import IconGrid from '../../examples/IconGrid'
 

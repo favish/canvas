@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Image, Flex } from '@rsbear/canvas'
+import { Box, Image, Flex } from '@favish/canvas'
 
 const ImageExample: React.FC<any> = () => {
   return (

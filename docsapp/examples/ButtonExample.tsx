@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex,  Box, LoadingSpinner, Icon } from '@rsbear/canvas'
+import { Flex,  Box, LoadingSpinner, Icon } from '@favish/canvas'
 import styled from "styled-components";
 
 import {

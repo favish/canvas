@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Tag } from '@rsbear/canvas'
+import { Flex, Tag } from '@favish/canvas'
 
 const TagExample: React.FC<any> = () => {
   const [activeTags, setActiveTags] = React.useState(['steve zissou'])

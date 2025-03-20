@@ -22,7 +22,7 @@ RUN yarn
 
 COPY docsapp .
 
-RUN yarn link "@rsbear/canvas"
+RUN yarn link "@favish/canvas"
 
 # Start the app
 

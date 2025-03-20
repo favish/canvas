@@ -6,7 +6,7 @@ import {
   Button,
   ButtonStyleProps,
   Icon,
-} from '@rsbear/canvas'
+} from '@favish/canvas'
 
 import styled from 'styled-components'
 import useOutsideClick from './../hooks/useOutsideClick'

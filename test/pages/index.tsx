@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal } from "@rsbear/canvas";
+import { Modal } from "@favish/canvas";
 
 //////////////
 export interface GetProps<P = {}> extends React.FC<P> {

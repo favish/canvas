@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Icon, Flex } from '@rsbear/canvas'
+import { Icon, Flex } from '@favish/canvas'
 
 const IconExample: FC<any> = () => (
   <Flex>

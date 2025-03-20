@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, BorderBox } from '@rsbear/canvas'
+import { Flex, BorderBox } from '@favish/canvas'
 
 const FlexExample: React.FC<any> = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Flex, BorderBox, Icon, Sans } from '@rsbear/canvas'
+import { Flex, BorderBox, Icon, Sans } from '@favish/canvas'
 
 import styled from 'styled-components'
 import { space, SpaceProps } from 'styled-system'

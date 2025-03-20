@@ -1,5 +1,5 @@
 import React from 'react'
-import { Sans, Flex, Tooltip } from '@rsbear/canvas'
+import { Sans, Flex, Tooltip } from '@favish/canvas'
 
 const TooltipExample: React.FC<any> = () => {
   return (

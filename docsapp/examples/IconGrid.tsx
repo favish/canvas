@@ -1,6 +1,6 @@
 import React from 'react'
-import { Flex, Sans, Icon } from '@rsbear/canvas'
-import IconEnum from '@rsbear/canvas/dist/components/Icon/iconEnumType'
+import { Flex, Sans, Icon } from '@favish/canvas'
+import IconEnum from '@favish/canvas/dist/components/Icon/iconEnumType'
 
 const IconGrid: React.FC<any> = () => {
   const iconMap = [

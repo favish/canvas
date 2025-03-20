@@ -7,7 +7,7 @@ import {
   LoadingDots,
   Sans,
   Divider,
-} from '@rsbear/canvas'
+} from '@favish/canvas'
 
 import { createPortal } from 'react-dom'
 import { RemoveScroll } from 'react-remove-scroll'

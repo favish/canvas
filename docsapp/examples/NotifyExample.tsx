@@ -1,5 +1,5 @@
 import React from 'react'
-import { Notify, Button } from '@rsbear/canvas'
+import { Notify, Button } from '@favish/canvas'
 
 const NotifyExample: React.FC<any> = () => {
   const [toast, setToast] = React.useState(false)

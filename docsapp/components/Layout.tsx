@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import Meta from './Meta'
-import { GlobalStyles, Flex, Theme, Sans } from '@rsbear/canvas'
+import { GlobalStyles, Flex, Theme, Sans } from '@favish/canvas'
 import theme from '../theme/theme'
 import Navigation from './Navigation'
 

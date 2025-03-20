@@ -9,7 +9,7 @@ The system is using styled-components and styled-system composed to give you the
 ## Install this bad boy.
 
 ```code
-yarn add @rsbear/canvas styled-components
+yarn add @favish/canvas styled-components
 yarn add --dev @types/styled-components @types/styled-system
 ```
 
