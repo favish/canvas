@@ -29,11 +29,9 @@
     "build:uncompressed": "microbundle --jsx React.createElement --external react --no-compress --name canvas --output dist/",
     "dev": "microbundle watch --jsx React.createElement --external react --no-compress --output dist/",
     "cleanup": "rimraf .rpt2_cache && rimraf .rts2_cache_cjs && rimraf .rts2_cache_umd && rimraf .rts2_cache_es",
-    "postversion": "git push && git push --tags",
-    "release": "semantic-release"
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.3",
     "@types/node": "^13.13.3",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
@@ -44,7 +42,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rimraf": "^3.0.2",
-    "semantic-release": "^24.2.3",
     "styled-components": "^5.1.0",
     "svg-url-loader": "^5.0.0",
     "typescript": "^3.8.3",
