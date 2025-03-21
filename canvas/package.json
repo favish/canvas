@@ -1,6 +1,6 @@
 {
   "name": "@favish/canvas",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "style with style",
   "main": "dist/canvas.js",
   "browser": "dist/canvas.umd.js",
